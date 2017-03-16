@@ -1,30 +1,32 @@
+/*Import Node Modules  */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { Ng2FilterPipeModule } from 'ng2-filter-pipe';
-
-import { routing } from './app.routing';
+import { XHRBackend } from '@angular/http';
+import { DataTableModule } from 'angular2-datatable';
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 import { Angular2DataTableModule } from 'angular2-data-table';
 import { Http, RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
-import { HttpInterceptor } from './shared/httpInterceptor';
-import { XHRBackend } from '@angular/http';
-
-import { DataTableModule } from 'angular2-datatable';
-import { ModalModule, DialogRef } from 'angular2-modal';
-import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
-
-
 import { LocalStorageService, LocalStorageModule } from 'angular-2-local-storage';
-import { HomeComponent } from './home/index';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TooltipModule } from 'ng2-tooltip'; /* for tooltip */
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { DragulaModule } from 'ng2-dragula/ng2-dragula'; /* for drag and drop grid rows */
+import { PopoverModule } from 'ngx-popover'; /* for for popver and toolip */
+import { AlertModule } from 'ng2-bootstrap'; /* bootstrap components start */
+import { InterceptorService } from 'ng2-interceptors';
 
+
+/*Import PrimeNg Modules */
 
 import {
   DropdownModule, TabViewModule, CheckboxModule,
   PanelModule,
-  PaginatorModule,
   MultiSelectModule,
   DataTableModule as PrimeDataTableModule,
   SharedModule,
@@ -42,58 +44,48 @@ import {
   PasswordModule,
   ContextMenuModule,
   AutoCompleteModule,
-  GrowlModule,
-
+  GrowlModule
 } from 'primeng/primeng';
 
 
+/* Import Initial Modules  */
+
+import { AppComponent } from './app.component';
+import { routing } from './app.routing';
+import { HttpInterceptor } from './shared/httpInterceptor';
+import { HomeComponent } from './home/index';
+import { CustomHttp } from './interceptor/customhttp';
+
 /* pipe */
+
 import { OrderBy } from './shared/pipe/orderby.pipe';
 
-/* for pagination */
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-/* for tooltip */
-import { TooltipModule } from 'ng2-tooltip';
-import { ToastModule } from 'ng2-toastr/ng2-toastr';
-/* for drag and drop grid rows */
-import { DragulaModule } from 'ng2-dragula/ng2-dragula';
-
-/* for for popver and toolip */
-import { PopoverModule } from 'ngx-popover';
-/* bootstrap components start */
-import { AlertModule } from 'ng2-bootstrap';
-// import { UiSwitchModule } from 'angular2-ui-switch';
-/* bootstrap components end */
-import { InterceptorService } from 'ng2-interceptors';
-import { CustomHttp } from './interceptor/customhttp';
-import { PubSubService } from './interceptor/pub-service';
-/*sp-app services*/
-import { MasterService } from './shared/services/master/master.service';
-import { AuthService } from './shared/services/otherServices/auth.service';
-
 /* sp-app components */
-import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 
+import { LoginComponent } from './login/login.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { DashboardViewComponent } from './dashboard/dashboard-view/dashboard-view.component';
 import { logoutComponent } from './shared/logout-modal/logout-modal.component';
 
 
 // for Import modules
+
 import { ImportComponent } from './import/import.component';
 
 // for Report modules
+
 import { ReportDashboardComponent } from './report/dashboard/dashboard.component';
 import { ReportComponent } from './report/select-report/select-report.component';
 
 /* for Reset Password */
+
 import { ResetPasswordService } from './reset-password/shared/reset-password.service';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { confirmationModalComponent } from './shared/confirmation-modal/confirmation-modal.component';
 
 
 /* admin user */
+
 import {
   AdminUsersComponent,
   WorkflowComponent,
@@ -103,9 +95,17 @@ import {
   UserInformationComponent,
   DocumentLevelSecurityComponent
 } from './admin/user';
+import { FileCabinetComponent } from './admin/file-cabinet/file-cabinet.component';
+
+
+/* Import services */
 
 import { LoginService } from './login/shared/login.service';
 import { AuthGuard } from './guard/index';
+import { PubSubService } from './interceptor/pub-service';
+import { MasterService } from './shared/services/master/master.service';
+import { AuthService } from './shared/services/otherServices/auth.service';
+
 
 let localStorageServiceConfig = {
   prefix: 'my-app',
@@ -114,13 +114,11 @@ let localStorageServiceConfig = {
 
 export function interceptorFactory(xhrBackend: XHRBackend, requestOptions: RequestOptions) {
   let service = new InterceptorService(xhrBackend, requestOptions);
-  // Add interceptors here with service.addInterceptor(interceptor)
   return service;
 }
 
 export function httpFactory(backend: XHRBackend, defaultOptions: RequestOptions, pubsub: PubSubService) {
   let service = new CustomHttp(backend, defaultOptions, pubsub);
-  // Add interceptors here with service.addInterceptor(interceptor)
   return service;
 }
 
@@ -134,7 +132,6 @@ export function htttpInterceptor(xhrBackend: XHRBackend,
     router,
     pubsub,
     localStorageService);
-  // Add interceptors here with service.addInterceptor(interceptor)
   return service;
 }
 
@@ -159,7 +156,8 @@ export function htttpInterceptor(xhrBackend: XHRBackend,
     UserAccessComponent,
     UserInformationComponent,
     DocumentLevelSecurityComponent,
-    OrderBy
+    OrderBy,
+    FileCabinetComponent
   ],
   entryComponents: [
     logoutComponent,
@@ -220,7 +218,6 @@ export function htttpInterceptor(xhrBackend: XHRBackend,
     {
       provide: Http,
       useFactory: httpFactory,
-      // (backend: XHRBackend, defaultOptions: RequestOptions, pubsub: PubSubService) => new CustomHttp(backend, defaultOptions, pubsub),
       deps: [XHRBackend, RequestOptions, PubSubService]
     },
     AuthGuard,
