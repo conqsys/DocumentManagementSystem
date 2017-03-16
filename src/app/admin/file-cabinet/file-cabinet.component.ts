@@ -3,7 +3,7 @@ import { Component, OnInit, } from '@angular/core';
 
 @Component({
   selector: 'sp-admin-file-cabinet',
-  templateUrl: './dashboard-view.component.html',
+  templateUrl: './file-cabinet.component.html',
 })
 
 
