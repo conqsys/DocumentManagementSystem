@@ -1,0 +1,66 @@
+﻿
+.text-success {
+    color: #25a25a;
+}
+.text-danger {
+    color: #e64433;
+}
+.text-success:hover {
+    color: #5f7676;
+}
+.text-danger:hover {
+    color: #5f7676;
+}
+.text-rejected {
+    color: #e64433;
+}
+.text-rejected:hover {
+    color: #3498db;
+}
+.text-orange {
+    color:orange;
+}
+.text-gray {
+    color:gray;
+}
+.text-warning1 {
+    color: #b8960b;
+}
+
+.left_align {
+    float:left;
+}
+.right_align {
+    float:right;
+}
+.clear_both {
+    clear:both;
+}
+.italic-font {
+    font-style: italic;
+}
+
+#collapse-two .list-group {
+            margin-bottom: 0;
+        }
+
+#collapse-two .list-group .list-group-item {
+    border-left: none!important;
+    border-right: none!important;
+}
+
+#collapse-two .list-group .list-group-item:first-child {
+    border-top: none!important;
+}
+
+#collapse-two .list-group .list-group-item:last-child {
+    border-bottom: none!important;
+}
+
+.paginate {
+    border: 1px solid #ccf;
+    padding: 5px;
+    margin: 3px;
+}
+
+

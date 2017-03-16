@@ -1,0 +1,130 @@
+<p-growl [value]="msgs">
+</p-growl>
+
+<br>
+
+<div class="page-content">
+  <div class="container-fluid">
+    <br>
+    <div class="row">
+      <!--<div class="col-lg-2"></div>-->
+      <div class="col-lg-12" style="cursor: pointer" (click)="reportClickedEvent(1)">
+        <div class="col-lg-12">
+          <i class="fa fa-plus-circle"></i><span style="margin-left:6px">Document Report</span>
+        </div>
+        <div class="col-lg-12">
+          <p style="margin-left:20px">
+            This report enables you to perform a wild card search for documents on all of the index fields as well as the comments field
+            and can be narrowed down to search a specific date range.
+          </p>
+        </div>
+      </div>
+      <!--<div class="col-lg-2"></div>-->
+    </div>
+
+    <br>
+    <div class="row">
+      <!--<div class="col-lg-2"></div>-->
+      <div class="col-lg-12" style="cursor: pointer" (click)="reportClickedEvent(2)">
+        <div class="col-lg-12">
+          <i class="fa fa-plus-circle"></i><span style="margin-left:6px">User Report</span>
+        </div>
+        <div class="col-lg-12">
+          <p style="margin-left:20px">
+            This report shows activities for each user within eBridge and contains the date of the activity, username, address, activity
+            type, all of the index fields, document type, number of pages, and size for the document.
+          </p>
+        </div>
+      </div>
+      <!--<div class="col-lg-2"></div>-->
+    </div>
+
+    <br>
+    <div class="row">
+      <!--<div class="col-lg-2"></div>-->
+      <div class="col-lg-12" style="cursor: pointer" (click)="reportClickedEvent(3)">
+        <div class="col-lg-12">
+          <i class="fa fa-plus-circle"></i><span style="margin-left:6px">Pages Report</span>
+        </div>
+        <div class="col-lg-12">
+          <p style="margin-left:20px">
+            This report displays the total number of pages added to the system by each user for a specific date range and the percentage
+            of the total page count for that date range.
+          </p>
+        </div>
+      </div>
+      <!--<div class="col-lg-2"></div>-->
+    </div>
+
+    <br>
+    <div class="row">
+      <!--<div class="col-lg-2"></div>-->
+      <div class="col-lg-12" style="cursor: pointer" (click)="reportClickedEvent(4)">
+        <div class="col-lg-12">
+          <i class="fa fa-plus-circle"></i><span style="margin-left:6px">Edited Documents Report</span>
+        </div>
+        <div class="col-lg-12">
+          <p style="margin-left:20px">
+            This report displays a list of all of the documents that have been edited by each user for a specific date range. It contains
+            the date edited and the value of each index field for the given document. It can be filtered by date, and by
+            user.
+          </p>
+        </div>
+      </div>
+      <!--<div class="col-lg-2"></div>-->
+    </div>
+
+    <br>
+    <div class="row">
+      <!--<div class="col-lg-2"></div>-->
+      <div class="col-lg-12" style="cursor: pointer" (click)="reportClickedEvent(5)">
+        <div class="col-lg-12">
+          <i class="fa fa-plus-circle"></i><span style="margin-left:6px">Deleted Documents Report</span>
+        </div>
+        <div class="col-lg-12">
+          <p style="margin-left:20px">
+            This report displays a list of all of the documents that have been deleted by each user for a specific date range. It contains
+            the date deleted and the value of each index field for the given document. It can be filtered by date, and by
+            user.
+          </p>
+        </div>
+      </div>
+      <!--<div class="col-lg-2"></div>-->
+    </div>
+
+    <br>
+    <div class="row">
+      <!--<div class="col-lg-2"></div>-->
+      <div class="col-lg-12" style="cursor: pointer" (click)="reportClickedEvent(6)">
+        <div class="col-lg-12">
+          <i class="fa fa-plus-circle"></i><span style="margin-left:6px">Workflow Report</span>
+        </div>
+        <div class="col-lg-12">
+          <p style="margin-left:20px">
+            This report displays a list of all of the documents that have been routed through the workflow process by each user for a
+            specific date range. It can be filtered by date, by status, and by user.
+          </p>
+        </div>
+      </div>
+      <!--<div class="col-lg-2"></div>-->
+    </div>
+
+    <br>
+    <div class="row">
+      <!--<div class="col-lg-2"></div>-->
+      <div class="col-lg-12" style="cursor: pointer" (click)="reportClickedEvent(7)">
+        <div class="col-lg-12">
+          <i class="fa fa-plus-circle"></i><span style="margin-left:6px">Admin Report</span>
+        </div>
+        <div class="col-lg-12">
+          <p style="margin-left:20px">
+            This report displays a list of the users and their permissions within eBridge. It can be filtered by user name and the date
+            the user last logged in.
+          </p>
+        </div>
+      </div>
+      <!--<div class="col-lg-2"></div>-->
+    </div>
+
+  </div>
+</div>

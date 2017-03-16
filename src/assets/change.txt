@@ -1,0 +1,9 @@
+install npm install --save @ng-bootstrap/ng-bootstrap
+
+add import {NgbModule} from '@ng-bootstrap/ng-bootstrap'; in app.module.ts
+add NgbModule.forRoot() under import section in app.module.ts
+
+add pagination.html new file 
+
+compare and add app.route and app.module file 
+replace companies 

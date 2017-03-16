@@ -1,0 +1,27 @@
+.queue{
+    padding-bottom: auto;    
+    background-color: #f0f3f5;
+    border: 1px solid #cccccc;
+    height: 110px;
+    /*border: thin solid black;*/
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.arrow{
+    padding: 1%; 
+    text-align: center
+}
+
+.menu_selectedItem {
+   background-color:#dfdfdf;
+}
+
+.menu_hoverItem:hover {
+   background-color:#FFF8DC;
+}
+
+.menu_item {
+   /*padding:12px;
+   border:1px solid #ccc;*/
+   cursor:pointer;
+}

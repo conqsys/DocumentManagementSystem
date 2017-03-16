@@ -1,0 +1,105 @@
+﻿<p-growl [value]="msgs"></p-growl>
+
+<br>
+<div class="page-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-6">
+        <p-fileUpload name="uploadFile[]" [style]="{'width':'100%'}" (onSelect)="onUpload($event)" url="http://localhost:3000/upload"
+          accept=""></p-fileUpload>
+        <!--<input id="member_PictureFile" name="member[PictureFile]" type="file" #input (change)="onUpload(input)" accept="image/*">-->
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+    <br>
+
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-2">
+        <p>Client Code</p>
+      </div>
+      <div class="col-lg-4">
+        <p-dropdown [options]="clients" [style]="{'width':'100%'}" [(ngModel)]="import.clientId"></p-dropdown>
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-2">
+        <p>MM-DD-YYYY</p>
+      </div>
+      <div class="col-lg-4">
+        <input type="text" [(ngModel)]="import.uploadDate" [style]="{'width':'100%'}" class="form-control text-back-color">
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-2">
+        <p>Batch#</p>
+      </div>
+      <div class="col-lg-4">
+        <input type="text" [(ngModel)]="import.batchNumber" [style]="{'width':'100%'}" class="form-control text-back-color">
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-2">
+        <p>Batch Type</p>
+      </div>
+      <div class="col-lg-4">
+        <input type="text" [(ngModel)]="import.batchType" [style]="{'width':'100%'}" class="form-control text-back-color">
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-2">
+        <p>Status</p>
+      </div>
+      <div class="col-lg-4">
+        <input type="text" [(ngModel)]="import.status" [style]="{'width':'100%'}" class="form-control text-back-color">
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-2">
+        <p>Misc</p>
+      </div>
+      <div class="col-lg-4">
+        <input type="text" [(ngModel)]="import.misc" [style]="{'width':'100%'}" class="form-control text-back-color">
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-2">
+        <p>Route to</p>
+      </div>
+      <div class="col-lg-4">
+        <p-dropdown [options]="users" [style]="{'width':'100%'}" [(ngModel)]="import.routeTo"></p-dropdown>
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-2"></div>
+      <div class="col-lg-2">
+        <button type="button" class='btn button-primary btn-save' label="Import" (click)="saveImport();">Import</button>
+      </div>
+      <div class="col-lg-2"></div>
+      <div class="col-lg-3"></div>
+    </div>
+
+  </div>
+</div>

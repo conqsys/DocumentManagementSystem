@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*body {
+  font-family: 'Source Sans Pro', 'Segoe UI', 'Droid Sans', Tahoma, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #5f7676;
+  background-color: #f2f5f7;
+}
+#customcrumb{
+
+  margin: 20px 10px !important;
+    padding: 4px 12px !important;
+}*/
+ #listview tr td:hover {
+            cursor: pointer;
+            background-color: #f7de79;
+        }
+        .ui-dropdown-trigger.ui-state-default.ui-corner-right {
+    display: inline-block !important;
+    width: 25px !important;
+    height: 100% !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 0 !important;
+    border-left: 1px solid #e3e3e3 !important;
+    border-radius: 0 3px 3px 0 !important;
+    background: #f5f5f5 !important;
+    
+}
+
+
+.ui-dropdown.ui-widget.ui-state-default.ui-corner-all.ui-helper-clearfix {
+    height: 34px !important;
+}
+/*
+.ui-state-hover {
+  background-color:white ;
+}*/
+.ui-dropdown {
+ padding-right:0px !important;
+}
+.ui-inputtext {
+  padding:5px !important;
+}
+span.fa.fa-fw.fa-caret-down.ui-c {
+padding:20% !important;
+}
+label.ui-dropdown-label.ui-inputtext.ui-corner-all {
+    color: #666 !important;
+}

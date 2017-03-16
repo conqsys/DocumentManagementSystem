@@ -1,0 +1,92 @@
+<div class="first" style="background-color: #FFC900;"><h4 style="padding: 1%"><i class="fa fa-life-ring" aria-hidden="true"></i><b> User Information</b></h4>
+</div>
+<div class="ui-grid ui-grid-responsive ui-grid-pad">
+     <div class="ui-grid-row" style="padding-top:10px; padding-left:10px;">
+Please provide the users first name, last name, email address, username and password all of which are required for the use of eBridge.
+    </div>
+    <div class="ui-grid-row" style="padding-top:10px;">
+        <div class="ui-grid-col-6">
+            <h3 class="first">Personal Information</h3>
+            <div class="ui-grid-col-4">
+                First Name
+            </div>
+            <div class="ui-grid-col-8">
+                <input pInputText type="text" />
+            </div>
+        </div>
+        <div class="ui-grid-col-6">
+            <h3 class="first">Login Credential</h3>
+            <div class="ui-grid-col-4">
+                User Name
+            </div>
+            <div class="ui-grid-col-8">
+                <input pInputText type="text" />
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-6">
+            <div class="ui-grid-col-4">
+                Last Name
+            </div>
+            <div class="ui-grid-col-8">
+                <input pInputText type="text" />
+            </div>
+        </div>
+        <div class="ui-grid-col-6">
+            <div class="ui-grid-col-4">
+                Password
+            </div>
+            <div class="ui-grid-col-8">
+                <input type="password" pPassword/>
+            </div>
+        </div>
+    </div>
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-6">
+            <div class="ui-grid-col-4">
+                Email Address
+            </div>
+            <div class="ui-grid-col-8">
+                <input pInputText type="text" />
+            </div>
+        </div>
+        <div class="ui-grid-col-6">
+            <div class="ui-grid-col-4">
+                Confirm Password
+            </div>
+            <div class="ui-grid-col-8">
+                <input type="password" pPassword />
+            </div>
+        </div>
+    </div>
+    
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-6">
+            <h3 class="first">Login Options</h3>
+            <div style="width:300px; margin-bottom:50px;">
+                <div class="ui-grid-row">
+                    <p-checkbox binary="true" label="User must change password at next logon"></p-checkbox>
+                </div>
+                <div class="ui-grid-row">
+                    <p-checkbox binary="true" label="User must change password every 60 days"></p-checkbox>
+                </div>
+                <div class="ui-grid-row">
+                    <p-checkbox binary="true" label="Enforce password history"></p-checkbox>
+                </div>
+            </div>
+        </div>
+
+<div class="ui-grid-col-6">
+            <h3 class="first">Time Zone</h3>
+            <div class="ui-g" style="width:250px;margin-bottom:10px">
+                <div class="ui-g-12">
+                  <p-dropdown [options]="timeZones" ></p-dropdown>
+                </div>
+                
+            </div>
+        </div>
+       
+
+
+    </div>

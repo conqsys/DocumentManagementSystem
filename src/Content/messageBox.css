@@ -1,0 +1,120 @@
+﻿
+/* SmallBox */
+#divSmallBoxes {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 9999;
+}
+.SmallBox {
+  position: absolute;
+  right: 5px;
+  top: 20px;
+  width: 420px;
+  color: white;
+  z-index: 9999;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+.SmallBox:hover {
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.SmallBox .foto {
+  font-size: 50px;
+  position: absolute;
+  left: 17px;
+}
+.SmallBox .textoFull {
+  width: 93%;
+  float: left;
+  padding-left: 20px;
+}
+.SmallBox .textoFoto {
+  width: 78%;
+  margin: 3px 20px 3px 80px;
+  float: left;
+}
+.miniPic {
+  position: absolute;
+  bottom: 8px;
+  right: 9px;
+}
+.miniIcono {
+  height: 100%;
+  font-size: 20px;
+}
+.SmallBox span {
+  font-size: 17px;
+  font-weight: 300;
+  letter-spacing: -1px;
+  display: block;
+  margin: 4px 0;
+}
+.SmallBox p {
+  font-size: 13px;
+  margin-top: 2px;
+}
+/* End of SmallBox */
+
+
+/*Messagebox */
+.divMessageBox {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 100000;
+}
+/*
+.MessageIE{
+    background-image: url("@{base-url}/bg.png");
+    
+}*/
+.MessageBoxContainer {
+  top: 35%;
+  color: white;
+  position: relative;
+  width: 100%;
+  background-color: #232323;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+}
+.MessageBoxMiddle {
+  position: relative;
+  left: 20%;
+  width: 60%;
+}
+.MessageBoxMiddle .MsgTitle {
+  letter-spacing: -1px;
+  font-size: 24px;
+  font-weight: 300;
+}
+.MessageBoxMiddle .pText {
+  font-style: 30px;
+}
+.MessageBoxContainer input {
+  width: 50%;
+  padding: 5px;
+}
+.MessageBoxContainer select {
+  width: 50%;
+  padding: 5px;
+}
+.MessageBoxButtonSection {
+  width: 100%;
+  height: 30px;
+}
+.MessageBoxButtonSection button {
+  float: right;
+  margin-right: 7px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 14px;
+  font-weight: bold;
+}
+/* End of MessageBox */
+
+.buttonHover{ cursor: pointer;}

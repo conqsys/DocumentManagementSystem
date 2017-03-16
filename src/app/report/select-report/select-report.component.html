@@ -1,0 +1,308 @@
+<div class="page-content">
+  <div class="container-fluid">
+
+    <div class="row" style="margin-top: 30px">
+      <div class="col-lg-5"></div>
+      <div class="col-lg-4">
+        <button type="text" (click)="showDialog()" pButton icon="fa-external-link-square" label="Report Option"></button>
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+
+
+    <div class="row" style="margin-top: 30px">
+      <div class="col-lg-12">
+        <p-dataTable [value]="clientItems" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,10,20]" [responsive]="true">
+
+          <p-column field="clientName" header="User" [sortable]="true" *ngIf="reportId == 2 || reportId == 3"> </p-column>
+
+          <p-column field="clientName" header="Activate Date" [sortable]="true" *ngIf="reportId == 2"> </p-column>
+
+          <p-column field="clientName" header="IP Address" [sortable]="true" *ngIf="reportId == 2"> </p-column>
+
+          <p-column field="clientName" header="Activity" [sortable]="true" *ngIf="reportId == 2"> </p-column>
+
+          <p-column field="clientName" header="Document Id" [sortable]="true" *ngIf="reportId == 1 || reportId == 4 || reportId == 5 || reportId == 6">
+          </p-column>
+
+          <p-column field="clientName" header="Edited By" [sortable]="true" *ngIf="reportId == 4"> </p-column>
+
+          <p-column field="clientName" header="Edit Date" [sortable]="true" *ngIf="reportId == 4"> </p-column>
+
+          <p-column field="clientName" header="Deleted By" [sortable]="true" *ngIf="reportId == 5"> </p-column>
+
+          <p-column field="clientName" header="Deleted Date" [sortable]="true" *ngIf="reportId == 5"> </p-column>
+
+          <p-column field="clientName" header="Assigned To" [sortable]="true" *ngIf="reportId == 6"> </p-column>
+
+          <p-column field="clientName" header="Status" [sortable]="true" *ngIf="reportId == 6"> </p-column>
+
+          <p-column field="clientName" header="Status Date" [sortable]="true" *ngIf="reportId == 6"> </p-column>
+
+          <p-column field="clientAcronym" header="Client Code" [sortable]="true" *ngIf="reportId == 1 || reportId == 2 || reportId == 4 || reportId == 5 || reportId == 6"></p-column>
+
+          <p-column field="description" header="MM-DD-YYYY" [sortable]="true" *ngIf="reportId == 1 || reportId == 2 || reportId == 4 || reportId == 5 || reportId == 6"></p-column>
+
+          <p-column field="description" header="Batch#" [sortable]="true" *ngIf="reportId == 1 || reportId == 2 || reportId == 4 || reportId == 5 || reportId == 6"></p-column>
+
+          <p-column field="description" header="Batch Type" [sortable]="true" *ngIf="reportId == 1 || reportId == 2 || reportId == 4 || reportId == 5 || reportId == 6"></p-column>
+
+          <p-column field="description" header="Status" [sortable]="true" *ngIf="reportId == 1 || reportId == 2 || reportId == 4 || reportId == 5 || reportId == 6"></p-column>
+
+          <p-column field="description" header="Misc" [sortable]="true" *ngIf="reportId == 1 || reportId == 2 || reportId == 4 || reportId == 5 || reportId == 6"></p-column>
+
+          <p-column field="description" header="Details" [sortable]="true" *ngIf="reportId == 1 || reportId == 2"></p-column>
+
+          <p-column field="description" header="Comment" [sortable]="true" *ngIf="reportId == 1"></p-column>
+
+          <p-column field="clientName" header="Pages" [sortable]="true" *ngIf="reportId == 3"> </p-column>
+
+          <p-column field="clientName" header="Percentage" [sortable]="true" *ngIf="reportId == 3"> </p-column>
+
+          <p-column field="clientName" header="Insert Date" [sortable]="true" *ngIf="reportId == 4 || reportId == 5 || reportId == 6">
+          </p-column>
+
+          <p-column field="clientName" header="User Name" [sortable]="true" *ngIf="reportId == 7"> </p-column>
+          <p-column field="clientName" header="Full Name" [sortable]="true" *ngIf="reportId == 7"> </p-column>
+          <p-column field="clientName" header="Email Address" [sortable]="true" *ngIf="reportId == 7"> </p-column>
+          <p-column field="clientName" header="View Documents" [sortable]="true" *ngIf="reportId == 7"> </p-column>
+          <p-column field="clientName" header="Import Documents" [sortable]="true" *ngIf="reportId == 7"> </p-column>
+          <p-column field="clientName" header="Delete Documents" [sortable]="true" *ngIf="reportId == 7"> </p-column>
+          <p-column field="clientName" header="Edit Indexes" [sortable]="true" *ngIf="reportId == 7"> </p-column>
+          <p-column field="clientName" header="Scan Access" [sortable]="true" *ngIf="reportId == 7"> </p-column>
+          <p-column field="clientName" header="Report Access" [sortable]="true" *ngIf="reportId == 7"> </p-column>
+          <p-column field="clientName" header="Admin Access" [sortable]="true" *ngIf="reportId == 7"> </p-column>
+          <p-column field="clientName" header="Wild Card" [sortable]="true" *ngIf="reportId == 7"> </p-column>
+
+
+
+        </p-dataTable>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<p-dialog header="Report Option" [(visible)]="display" modal="modal"  width={{modelWidth}} responsive="true">
+
+  <div *ngIf="reportId == 1">
+    <br>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+          <p>Start Date</p>
+        </div>
+        <div class="col-lg-12">
+          <p-calendar [(ngModel)]="date3" [showIcon]="true" [style]="{'width':'250px'}"></p-calendar>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+          <p>End Date</p>
+        </div>
+        <div class="col-lg-12">
+          <p-calendar [(ngModel)]="date3" [showIcon]="true" [style]="{'width':'250px'}"></p-calendar>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+          <p>Client Code</p>
+        </div>
+        <div class="col-lg-12">
+          <p-dropdown [options]="clients" [style]="{'width':'100%'}"></p-dropdown>
+          <!--<p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City" [style]="{'width':'250px'}"></p-dropdown>-->
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row" style="margin-top: 2px">
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+          <p>MISC</p>
+        </div>
+        <div class="col-lg-12">
+          <input id="in" type="text" size="30" pInputText [(ngModel)]="text" />
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+          <p>MM-DD-YYYY</p>
+        </div>
+        <div class="col-lg-12">
+          <input id="in" type="text" size="30" pInputText [(ngModel)]="text" />
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+          <p>Batch#</p>
+        </div>
+        <div class="col-lg-12">
+          <input id="in" type="text" size="30" pInputText [(ngModel)]="text" />
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row" style="margin-top: 2px">
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+          <p>Batch Type</p>
+        </div>
+        <div class="col-lg-12">
+          <input id="in" type="text" size="30" pInputText [(ngModel)]="text" />
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+          <p>Status</p>
+        </div>
+        <div class="col-lg-12">
+          <input id="in" type="text" size="30" pInputText [(ngModel)]="text" />
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+          <p>Comments</p>
+        </div>
+        <div class="col-lg-12">
+          <input id="in" type="text" size="30" pInputText [(ngModel)]="text" />
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row" style="margin-top: 20px">
+      <div class="col-lg-10" style="margin-left: 10px">
+        <button pButton type="button" label="RUN"></button>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+
+  <div *ngIf="reportId == 2 || reportId == 3 || reportId == 4 || reportId == 5 || reportId == 7">
+
+    <div class="row" *ngIf="reportId == 7">
+      <div class="col-lg-6">
+        <div class="col-lg-12">
+          <p>User Name</p>
+        </div>
+        <div class="col-lg-12">
+          <input id="in" type="text" size="30" pInputText [(ngModel)]="text" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 5px">
+      <div class="col-lg-6">
+        <div class="col-lg-12">
+          <p *ngIf="reportId == 2">Activity Start Date</p>
+          <p *ngIf="reportId == 3">Start Date</p>
+          <p *ngIf="reportId == 4">Edit Start Date</p>
+          <p *ngIf="reportId == 5">Delete Start Date</p>
+          <p *ngIf="reportId == 7">Last Login Start Date</p>
+        </div>
+        <div class="col-lg-12">
+          <p-calendar [(ngModel)]="date3" [showIcon]="true"></p-calendar>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="col-lg-12">
+          <p *ngIf="reportId == 2">Activity End Date</p>
+          <p *ngIf="reportId == 3">End Date</p>
+          <p *ngIf="reportId == 4">Edit End Date</p>
+          <p *ngIf="reportId == 5">Delete Start Date</p>
+          <p *ngIf="reportId == 7">Last Login End Date</p>
+        </div>
+        <div class="col-lg-12">
+          <p-calendar [(ngModel)]="date3" [showIcon]="true"></p-calendar>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 2px">
+      <div class="col-lg-6">
+        <div class="col-lg-12" *ngIf="reportId == 2 || reportId == 4 || reportId == 5">
+          <p>Select User</p>
+        </div>
+        <div class="col-lg-12" *ngIf="reportId == 2 || reportId == 4 || reportId == 5">
+          <p-dropdown [options]="users" [style]="{'width':'100%'}"></p-dropdown>
+          <!--<p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City" [style]="{'width':'220px'}"></p-dropdown>-->
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="col-lg-12" style="margin-top: 35px">
+          <button pButton type="button" label="RUN"></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="reportId == 6">
+    <div class="row">
+
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+          <p>Date Type</p>
+        </div>
+        <div class="col-lg-12">
+          <input type="radio" name="gender" value="male" checked>Scanned Date<br>
+        </div>
+        <div class="col-lg-12">
+          <input type="radio" name="gender" value="male">Status Date<br>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+          <p>Start Date</p>
+        </div>
+        <div class="col-lg-12">
+          <p-calendar [(ngModel)]="date3" [showIcon]="true"></p-calendar>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+          <p>End Date</p>
+        </div>
+        <div class="col-lg-12">
+          <p-calendar [(ngModel)]="date3" [showIcon]="true"></p-calendar>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row" style="margin-top: 10px">
+
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+          <p>Select Assignment</p>
+        </div>
+        <div class="col-lg-12">
+          <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City" [style]="{'width':'220px'}"></p-dropdown>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+          <p>Select Status</p>
+        </div>
+        <div class="col-lg-12">
+          <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City" [style]="{'width':'220px'}"></p-dropdown>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="col-lg-12">
+        </div>
+        <div class="col-lg-12" style="margin-top: 35px">
+          <button pButton type="button" label="RUN"></button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</p-dialog>

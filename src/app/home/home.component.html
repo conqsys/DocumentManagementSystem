@@ -1,0 +1,172 @@
+﻿<div id="headerbar">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-6 col-sm-2">
+        <a href="#" class="shortcut-tiles tiles-brown">
+          <div class="tiles-body">
+            <div class="pull-left"><i class="fa fa-pencil"></i></div>
+          </div>
+          <div class="tiles-footer">
+            Create Post
+          </div>
+        </a>
+      </div>
+      <div class="col-xs-6 col-sm-2">
+        <a href="#" class="shortcut-tiles tiles-grape">
+          <div class="tiles-body">
+            <div class="pull-left"><i class="fa fa-group"></i></div>
+            <div class="pull-right"><span class="badge">2</span></div>
+          </div>
+          <div class="tiles-footer">
+            Contacts
+          </div>
+        </a>
+      </div>
+      <div class="col-xs-6 col-sm-2">
+        <a href="#" class="shortcut-tiles tiles-primary">
+          <div class="tiles-body">
+            <div class="pull-left"><i class="fa fa-envelope-o"></i></div>
+            <div class="pull-right"><span class="badge">10</span></div>
+          </div>
+          <div class="tiles-footer">
+            Messages
+          </div>
+        </a>
+      </div>
+      <div class="col-xs-6 col-sm-2">
+        <a href="#" class="shortcut-tiles tiles-inverse">
+          <div class="tiles-body">
+            <div class="pull-left"><i class="fa fa-camera"></i></div>
+            <div class="pull-right"><span class="badge">3</span></div>
+          </div>
+          <div class="tiles-footer">
+            Gallery
+          </div>
+        </a>
+      </div>
+      <div class="col-xs-6 col-sm-2">
+        <a href="#" class="shortcut-tiles tiles-midnightblue">
+          <div class="tiles-body">
+            <div class="pull-left"><i class="fa fa-cog"></i></div>
+          </div>
+          <div class="tiles-footer">
+            Settings
+          </div>
+        </a>
+      </div>
+      <div class="col-xs-6 col-sm-2">
+        <a href="#" class="shortcut-tiles tiles-orange">
+          <div class="tiles-body">
+            <div class="pull-left"><i class="fa fa-wrench"></i></div>
+          </div>
+          <div class="tiles-footer">
+            Plugins
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<header id="topnav" class="navbar navbar-default navbar-fixed-top clearfix" role="banner" [ngStyle]="disableMenu">
+  <a id="leftmenu-trigger" class="" data-toggle="tooltip" data-placement="right" title="Toggle Sidebar"></a>
+  <a routerLink="/dashboard">
+    <label class="head">AP Easy Software Solutions</label>
+    <!--<img src="" class="head-img">-->
+  </a>
+  <!--<div class="yamm navbar-left navbar-collapse collapse in">
+    <ul class="nav navbar-nav">
+      <li class="dropdown" *ngIf="showLoading">
+        <div class="loading">Loading&#8230;</div>
+      </li>
+    </ul>
+  </div>-->
+  <!--<sp-loading-spinner [showLoader] = 'showLoader' ></sp-loading-spinner>-->
+  <ul class="nav navbar-nav toolbar pull-right">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle username" data-toggle="dropdown" *ngIf="user">
+        <span class="hidden-xs">{{user.Name}}</span>
+        <img class="img-circle" src="../../../assets/img/user_white.png" alt="Dangerfield" />
+      </a>
+      <ul class="dropdown-menu userinfo">
+        <li class="divider"></li>
+        <li>
+          <a (click)="openlogoutModal()">
+            <span class="pull-left">Sign Out</span>
+            <i class="pull-right fa fa-sign-out"></i>
+          </a>
+          <a (click)="onPasswordReset()">
+            <span class="pull-left">Reset Password</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</header>
+<div id="wrapper" style="height: 100%;overflow-y: scroll">
+  <div id="layout-static">
+    <div class="static-sidebar-wrapper sidebar-inverse" [ngStyle]="disableSideBar">
+      <div class="static-sidebar">
+        <div class="sidebar">
+          <div class="widget stay-on-collapse">
+            <div class="widget-body welcome-box tabular">
+              <div class="tabular-row">
+                <div class="tabular-cell welcome-avatar">
+                  <a routerLink="dashboard" *ngIf="user">
+                    <img src="../../../assets/img/user_white.png" class="avatar" />
+                  </a>
+                </div>
+                <div class="tabular-cell welcome-options" *ngIf="user">
+                  <b class="welcome-text">Welcome,<br>{{user.Name}}</b>
+                  <a href="#" class="name"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="widget stay-on-collapse" id="widget-sidebar">
+            <span class="widget-heading">QUICK LINKS</span>
+            <nav role="navigation" class="widget-body">
+              <ul class="acc-menu">
+                <li><a routerLink="/dashboard"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
+                <li>
+                  <a href="javascript:;"><i class="fa fa-database fnt-22"></i><span class="fnt-22">Admin</span></a>
+                  <ul class="acc-menu">
+                    <li><a routerLink="/admin/users">Users</a></li>
+                    <li><a routerLink="/ticketStatus">File Cabinet</a></li>
+                    <li><a routerLink="/clients">Company</a></li>
+                    <li><a routerLink="/process">Scanners</a></li>
+                    <li><a routerLink="/facility">Workflow</a></li>
+                  </ul>
+                </li>
+                <li><a routerLink="/import"><i class="fa fa-file"></i><span>Import</span></a></li>
+                <li><a routerLink="/report"><i class="fa fa-bar-chart"></i><span>Report</span></a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="static-content-wrapper">
+      <div class="static-content">
+        <div id="body">
+          <div>
+            <span defaultOverlayTarget></span>
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+      <footer role="contentinfo">
+        <div class="clearfix">
+          <ul class="list-unstyled list-inline pull-left">
+            <li>
+              <h6 style="margin: 0;">&copy;Ticketing Service</h6>
+            </li>
+          </ul>
+          <div class="pull-right">
+            <span>Version 0.0.1</span>
+            <button class="btn btn-link btn-xs hidden-print" id="back-to-top"><i class="fa fa-arrow-up"></i></button>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>

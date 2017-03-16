@@ -1,0 +1,73 @@
+<div class="first" style="background-color: #FFC900;"><h4 style="padding: 1%"><i class="fa fa-life-ring" aria-hidden="true"></i><b> Workflow</b></h4>
+</div>
+<div class="ui-grid ui-grid-responsive ui-grid-pad">
+
+    <div class="ui-grid-row" style="padding-top:10px;">
+<div class="ui-grid-col-12">
+    <b class="first">This user can route documents to:</b>
+    <div style="    color: #75797b;">
+        You may restrict the queue this user can route their documents to. Please select which queue you would like this user to
+        be able to route document to. This user can route to
+    </div>
+    <div class="ui-grid-row" style="padding-top:10px;padding-left: 1%;"> This user can route to
+
+</div>
+<div class="ui-grid-row" style="padding-left: 1%;">
+    <p-dropdown [options]="users" [(ngModel)]="selectedUser" [style]="{'width':'150px'}"></p-dropdown>
+</div>
+<div class="ui-grid-row" style="padding-top:50px;">
+<b>Workflow queues this user can see:</b>
+
+</div>
+<div class="ui-grid-row" style="color: #75797b;">
+    You may restrict which queue this user can see in addition to their own.If you would like this user to be able to see every
+    queue please select the "Workflow Admin" checkbox.
+</div>
+<div class="ui-grid-row">
+    Workflow Admin
+</div>
+<div style="padding-left:2%">
+    Allow this user to have access to all queues just as they would their own.
+
+    <p-checkbox [(ngModel)]="checked" binary="true"></p-checkbox>
+</div>
+<div style="padding-top:20px;" *ngIf="!checked">
+<div class="ui-grid-row">
+    All available queue in this cabinet
+</div>
+<div class="ui-grid-col-5 queue">
+
+    <div *ngFor="let queue of queues | orderbyPipe:'value' ; let ind = index" (click)="onSelectQueue(queue)" [ngClass]="{'menu_item':true, 'menu_hoverItem': (selectedIndex !== ind), 'menu_selectedItem': (selectedIndex === ind) }" >
+        <div style="padding: 2%;" *ngIf="!queue.isCheck">
+<div class="first" >
+   <span style="cursor: pointer;"  > {{queue.label}}</span>
+    <!--<p-checkbox [(ngModel)]="queue.isCheck" binary="true" (onChange)="toggleRoleActive()"> </p-checkbox>{{queue.label}}-->
+</div>
+
+</div>
+</div>
+</div>
+<div class=" ui-grid-col-2 arrow">
+ 
+    <!--<div class=" ui-grid-col-12">
+        <img class="icon icons8-Right-Filled" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAABSUlEQVRoQ+2Y0W3CQBBEHxVAB6EEOgjpgHQAFUAHiEpIB0kJdJJ0kJQQrcQHAuScfLPs5bSW/GV7vG/m7L27CZ0ck044SJDWksxEMhEnB3JoORk7WjYTGW2d04OZiJOxo2UjElkCe2AGHICP0dVfPBgBcgKeL2rYAG+1MBEgX8DTVeHVMBEga+B4J4EqmAgQY5DDRIHIYSJBpDDRIDKYFkAkMK2ADMG8ANZ7Bo8SkB2wBeZ/iTld/wHs1zw4AygB+T5PJ5zqLJYd7DMlIObItPh1fjdWg9jQsvN6WuFX8q3yq2JoPargqm5fMrQeAVIFYQW2AFIN0QKIBCIaRAYRCSKFiAJZAe89LKw+70x3qlaHUYl0s/mwOHdp2w6yb+Xfbge5NNgWGqIELEEkNgpFMhGhmRKpTERio1AkExGaKZHKRCQ2CkW6SeQXEYAxMxKiFQ4AAAAASUVORK5CYII="
+            width="50" height="50" (click)="toggleRoleActive()">
+    </div>
+    <img class="icon icons8-Left-Filled" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAABXElEQVRoQ+2X0Q3CMAxErxPACLABq7ABjMAGMAFsACOwAWzACrAJstRIVUWa1LlStzLf2L13ZydthZn8qplwwEGsJemJeCIDOeCjNZCx6raeiNq6gQo9kYGMVbdlJrIDcK6VHADc1KoUhSwQgbg2nv8GsFboUZcwQNoQIuYDYKVWpSgsBfkFITK2AO4KPeqSEpAYxP7f+yH0WhBTEFoQcxAaEJMQfUE2AB4Alq2NHGUn2qdC7o6YhshNJAahPip7FsrlekqdhKlExoYIzMk3hRyQJ4BFTxfZf0++KaRARJCkMiaMQBxLRys4G4MxcWLlLnsT5vVjZkzA5IxWU/ssLsQAZBKmbyJmYbQgAmQqmRKQLphJfVh1jVnyJmbfmKWJxGCSN7FVkDBml1qg7M9kvtnZphb1Y41WkQhGsYMwXGT28ESYbjJ6eSIMF5k9PBGmm4xengjDRWaP2STyBbNsMjORDTdFAAAAAElFTkSuQmCC"
+        width="50" height="50" (click)="toggleUnselectDetail()">-->
+</div>
+<div class="ui-grid-col-5 queue">
+    <div *ngFor="let queue of queues | orderbyPipe:'value' ; let ind = index"  (click)="onSelectQueue(queue)"  [ngClass]="{'menu_item':true, 'menu_hoverItem': (selectedIndex !== ind), 'menu_selectedItem': (selectedIndex === ind) }"> 
+        <div style="padding: 2%;"  *ngIf="queue.isCheck">
+<div class="first">
+   <span style="cursor: pointer;"  >  {{queue.label}}</span>
+    <!--<p-checkbox [(ngModel)]="queue.isCheck" binary="true" (onChange)="toggleUnselectDetail()"></p-checkbox>-->
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>

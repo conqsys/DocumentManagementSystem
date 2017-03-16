@@ -1,0 +1,90 @@
+﻿<p-growl [value]="errorMsg"></p-growl>
+<div class="focused-form sidebar-collapsed">
+    <div class="container" id="login-form">
+        <a href="#" class="login-logo" style="margin-top: 3%">
+            <img  src="../../assets/img/logo.png" alt="Dangerfield" height="90px" />
+        </a>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 [hidden]="!isLoginDisplay"><b>Please Log In</b></h2>
+                        <h2 [hidden]="isLoginDisplay"><b>Reset Password</b></h2>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" id="validate-form" method="post" [hidden]="!isLoginDisplay">
+                            <div style="margin: 0; padding: 0; display: inline">
+                                <input name="utf8" type="hidden" value="✓">
+                                <input name="authenticity_token" type="hidden" value="kSI7snvYIqjuddnhpq6HbXcGFTvyjo4uO6z6Q65lXzM=">
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-user"></i>
+                                        </span>
+                                        <input name="userName" autofocus="autofocus" [(ngModel)]="loginModel.userName" required class="form-control" data-parsley-minlength="6" id="user_username" name="user[username]" placeholder="Please enter your username." size="30" type="text" focus="userNameFocus">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-key"></i>
+                                        </span>
+                                        <input name="password" class="form-control" [(ngModel)]="loginModel.password" required id="user_password" name="user[password]" placeholder="Please enter your password." size="30" type="password">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel-footer">
+                                <div class="clearfix">
+                                    <div [hidden]="message == ''" class="alert alert-danger" style="margin-top: 10px;">
+                                        {{message}}
+                                    </div>
+                                    <button class='btn button-primary pull-right' type="submit" (click)="login()" >Login</button>
+                                    <a style ="color:black;" (click)="forgotPassword()">Forgot your password?</a><br [hidden]="!isLoginDisplay">
+                                    <!--<a href="#unblock/new">Unlock Account</a>-->
+                                </div>
+                            </div>
+                        </form>
+
+                        <!--<form class="form-horizontal" [hidden]="isLoginDisplay" ng-submit="getResetLink()">-->
+                            <div class="form-horizontal" [hidden]="isLoginDisplay">
+                            <div style="margin: 0; padding: 0; display: inline">
+                                <!--<input name="utf8" type="hidden" value="✓">-->
+                                 <!--value="kSI7snvYIqjuddnhpq6HbXcGFTvyjo4uO6z6Q65lXzM="-->
+                                <!--<input name="authenticity_token" type="hidden">-->
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-envelope-o"></i>
+                                        </span>
+                                        <input name="email" autofocus="autofocus" [(ngModel)]="loginModel.emailId"  class="form-control" placeholder="Please enter your email." size="30" type="text" focus="emailFocus">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel-footer">
+                                <div class="clearfix">
+                                    <!--<div [hidden]="message == ''" class="alert alert-danger" style="margin-top: 10px;">
+                                        {{message}}
+                                    </div>-->
+                                    <button class="btn button-primary pull-right" type="submit" (click)="getResetLink()"> Send Reset Link</button>
+                                    <a style ="color:black;" (click)="loginAccount()">Login your Account</a>
+                                </div>
+                            </div>
+                            </div>
+                        <!--</form>-->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

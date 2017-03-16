@@ -1,0 +1,69 @@
+﻿/**********
+ *	Popover List Styles
+ *********/
+.popover-list {
+  min-width: 350px;
+  max-width: 400px; }
+
+.popover-list .navbar .navbar-inner {
+  text-align: center !important; }
+
+.popover-list .popover_list {
+  list-style: none !important;
+  margin-left: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0; }
+
+.popover-list .popover_list li {
+  border-bottom: 1px dotted lightgrey !important;
+  padding-top: 6px !important;
+  padding-bottom: 6px !important; }
+
+.popover-list .popover_list li:first-child {
+  padding-top: 0 !important; }
+
+.popover-list .popover_list li:last-child {
+  border-bottom: none !important; }
+
+.popover-list .popover-content {
+  padding: 0 !important; }
+
+.popover-list .popover_content_wrap {
+  padding: 8px 14px !important;
+  max-height: 250px !important;
+  overflow-y: scroll !important; }
+
+.popover-list .popover-content .navbar, .navbar-inner {
+  margin: 0 !important;
+  border-left: none !important;
+  border-right: none !important;
+  -webkit-border-radius: 0px !important;
+  -moz-border-radius: 0px !important;
+  border-radius: 0px !important; }
+
+.popover-list .popover-content .search_form {
+  width: 100% !important;
+  text-align: center !important;
+  margin-bottom: 0px !important !important;
+  padding-bottom: 0px !important !important; }
+
+.popover-list .popover_search_wrap {
+  background: none repeat scroll 0 0 #fafbfc;
+  border-bottom: 1px solid #ebebeb !important;
+  margin-bottom: 12px !important; }
+
+.popover-list .popover_search_wrap input:text {
+  background-color: white; }
+
+.popover-list .popover-content .search_form .input-append {
+  margin-bottom: 0 !important; }
+
+.link_butt {
+  background-color: transparent;
+  border: none;
+  color: #0088cc;
+  padding: 0;
+  margin: 0; }
+
+.link_butt:focus, .link_butt:hover {
+  text-decoration: underline; }
