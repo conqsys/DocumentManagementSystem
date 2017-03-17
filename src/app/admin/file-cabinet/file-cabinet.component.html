@@ -1,0 +1,94 @@
+<p-growl [value]="errorMessage"></p-growl>
+
+
+<div class="ui-grid ui-grid-responsive ui-grid-pad" style="margin-top: 20px">
+
+  <div class="ui-grid-row">
+    <div class="ui-grid-col-1"></div>
+
+    <div class="ui-grid-col-2">
+      <div class="ui-grid-col-12">
+        <p>Index Name</p>
+      </div>
+      <div class="ui-grid-col-12">
+        <input id="in" type="text" size="20" pInputText [(ngModel)]="fileCabinateModel.indexName" [style]="{'width':'50px'}" />
+      </div>
+    </div>
+
+    <div class="ui-grid-col-2">
+      <div class="ui-grid-col-12">
+        <p>Index Type</p>
+      </div>
+      <div class="ui-grid-col-12">
+        <p-dropdown [options]="indexType" [(ngModel)]="fileCabinateModel.selectedIndexType" placeholder="Select a Index Type" [style]="{'width':'150px'}"></p-dropdown>
+      </div>
+    </div>
+
+    <div class="ui-grid-col-2">
+      <div class="ui-grid-col-12">
+        <p>Default Value</p>
+      </div>
+      <div class="ui-grid-col-12">
+        <input id="in" type="text" size="20" pInputText [(ngModel)]="fileCabinateModel.defaultValue" />
+      </div>
+    </div>
+
+    <div class="ui-grid-col-2" *ngIf="fileCabinateModel.selectedIndexType==1">
+      <div class="ui-grid-col-12">
+        <p>List Items</p>
+      </div>
+      <div class="ui-grid-col-12">
+        <textarea rows="5" cols="20" pInputTextarea [(ngModel)]="list"></textarea>
+      </div>
+    </div>
+
+    <div class="ui-grid-col-2">
+      <div class="ui-grid-col-12" style="margin-top :30px">
+        <button pButton type="text" (click)="addFileCabinate()" icon="fa-plus" label="Add"></button>
+      </div>
+    </div>
+
+    <div class="ui-grid-col-1"></div>
+
+  </div>
+
+  <div class="ui-grid-row" style="margin-top: 50px">
+    <div class="ui-grid-col-1"></div>
+
+    <div class="ui-grid-col-10">
+      <p-dataTable [value]="fileCabinates" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5,10,20]" [responsive]="true">
+        <p-column field="indexName" header="Index Name" [sortable]="true"> </p-column>
+        <p-column field="defaultValue" header="Default Value" [sortable]="true"> </p-column>
+        <p-column styleClass="col-button">
+          <template pTemplate="header">
+            <p>List Items</p>
+          </template>
+          <template let-fileCabinate="rowData" pTemplate="body">
+            <span *ngIf="fileCabinate.listItems.length ==0"><i class="fa fa-ban" aria-hidden="true"></i></span>
+            <span *ngIf="fileCabinate.listItems.length > 0">{{fileCabinate.listItems}}</span>
+          </template>
+        </p-column>
+        <p-column styleClass="col-button">
+          <template let-fileCabinate="rowData" pTemplate="body">
+            <button type="button" pButton (click)="editFileCabinate(fileCabinate)" icon="fa-edit"></button>
+          </template>
+        </p-column>
+        <p-column styleClass="col-button">
+          <template let-fileCabinate="rowData" pTemplate="body">
+            <button type="button" pButton (click)="deleteFileCabinate(fileCabinate)" icon="fa-trash"></button>
+          </template>
+        </p-column>
+      </p-dataTable>
+    </div>
+
+    <div class="ui-grid-col-1"></div>
+  </div>
+
+  <div class="ui-grid-row" style="margin-top: 50px">
+    <div class="ui-grid-col-5"></div>
+    <div class="ui-grid-col-2">
+      <button pButton type="text" (click)="saveFileCabinate()" label="Save"></button>
+    </div>
+    <div class="ui-grid-col-5"></div>
+  </div>
+</div>

@@ -105,6 +105,7 @@ import { AuthGuard } from './guard/index';
 import { PubSubService } from './interceptor/pub-service';
 import { MasterService } from './shared/services/master/master.service';
 import { AuthService } from './shared/services/otherServices/auth.service';
+import { FileCabinateService } from './admin/file-cabinet/shared/file-cabinate.service';
 
 
 let localStorageServiceConfig = {
@@ -227,6 +228,7 @@ export function htttpInterceptor(xhrBackend: XHRBackend,
     AuthService,
     ResetPasswordService,
     LoginService,
+    FileCabinateService,
     {
       provide: Http,
       useFactory: htttpInterceptor,
