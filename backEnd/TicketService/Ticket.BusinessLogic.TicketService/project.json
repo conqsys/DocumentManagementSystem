@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "NETStandard.Library": "1.6.0",
+    "Ticket.Base": {
+      "target": "project"
+    },
+    "Ticket.DataAccess.Common": {
+      "target": "project"
+    },
+    "Ticket.BusinessLogic.Common": {
+      "target": "project"
+    },
+    "Ticket.DataAccess.TicketService": {
+      "target": "project"
+    },
+    "MailKit": "1.10.2",
+    //"Ticket.BusinessLogic.AssetService": {
+    //  "target": "project"
+    //}
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  }
+}

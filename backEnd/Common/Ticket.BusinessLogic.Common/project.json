@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Ticket.DataAccess.Common": "1.0.0-*",
+    "NETStandard.Library": "1.6.0",
+    //"Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
+    //"Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
+    //"Microsoft.Extensions.Configuration.Json": "1.0.0",
+    //"Microsoft.Extensions.Logging": "1.1.0",
+    //"Microsoft.Extensions.Logging.Console": "1.0.0",
+    //"Microsoft.Extensions.Logging.Debug": "1.0.0",
+    //"Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
+    "SimpleStack.Orm": "1.0.2",
+    "SimpleStack.Orm.PostgreSQL": "1.0.2",
+    "Ticket.Base": {
+      "target": "project"
+    },
+    "Ticket.DataAccess.Common": {
+      "target": "project"
+    }
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  }
+}
