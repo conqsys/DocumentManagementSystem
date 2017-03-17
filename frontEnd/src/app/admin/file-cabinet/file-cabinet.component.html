@@ -20,7 +20,7 @@
         <p>Index Type</p>
       </div>
       <div class="ui-grid-col-12">
-        <p-dropdown [options]="indexType" [(ngModel)]="fileCabinateModel.selectedIndexType" placeholder="Select a Index Type" [style]="{'width':'150px'}"></p-dropdown>
+        <p-dropdown [options]="indexType" [(ngModel)]="fileCabinateModel.indexType" placeholder="Select a Index Type" [style]="{'width':'150px'}"></p-dropdown>
       </div>
     </div>
 
@@ -33,7 +33,7 @@
       </div>
     </div>
 
-    <div class="ui-grid-col-2" *ngIf="fileCabinateModel.selectedIndexType==1">
+    <div class="ui-grid-col-2" *ngIf="fileCabinateModel.indexType==1">
       <div class="ui-grid-col-12">
         <p>List Items</p>
       </div>
@@ -64,8 +64,8 @@
             <p>List Items</p>
           </template>
           <template let-fileCabinate="rowData" pTemplate="body">
-            <span *ngIf="fileCabinate.listItems.length ==0"><i class="fa fa-ban" aria-hidden="true"></i></span>
-            <span *ngIf="fileCabinate.listItems.length > 0">{{fileCabinate.listItems}}</span>
+            <span *ngIf="fileCabinate.listValues.length ==0"><i class="fa fa-ban" aria-hidden="true"></i></span>
+            <span *ngIf="fileCabinate.listValues.length > 0">{{fileCabinate.listValues}}</span>
           </template>
         </p-column>
         <p-column styleClass="col-button">

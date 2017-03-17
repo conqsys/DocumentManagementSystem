@@ -39,20 +39,21 @@ export class FileCabinetComponent implements OnInit {
       errorList += 'please fill default Name' + '<br>';
     }
 
-    if (this.list === '' && this.fileCabinateModel.selectedIndexType === 1) {
+    if (this.list === '' && this.fileCabinateModel.indexType === 1) {
       errorCount++;
       errorList += 'please fill atleast one list item' + '<br>';
     }
 
     if (this.list !== '') {
-      this.fileCabinateModel.listItems = this.list.split('\n');
+      this.fileCabinateModel.listValues = JSON.stringify(this.list.split('\n'));
     }
 
     /* check default valus is exists in List items */
-    if (this.fileCabinateModel.selectedIndexType === 1 &&
+    if (this.fileCabinateModel.indexType === 1 &&
       this.list !== '' && this.fileCabinateModel.defaultValue !== '') {
       let checkDefaultValueExist = 0;
-      this.fileCabinateModel.listItems.forEach((element) => {
+      let listArray = this.list.split('\n');
+      listArray.forEach((element) => {
         if (element === this.fileCabinateModel.defaultValue) {
           checkDefaultValueExist++;
         }
@@ -65,14 +66,14 @@ export class FileCabinetComponent implements OnInit {
     }
 
     /* check IndexName is already exits or not */
-    if (this.fileCabinateModel.indexName && this.fileCabinates.length > 0) {
+    if (this.fileCabinateModel.indexName && this.fileCabinates.length > 0 && this.fileCabinateModel.id === 0) {
       let checkIndexNameDuplicate = false;
       this.fileCabinates.map(item => {
         if (item.indexName === this.fileCabinateModel.indexName) {
           checkIndexNameDuplicate = true;
         }
       });
-      if (checkIndexNameDuplicate = true && errorList === '') {
+      if (checkIndexNameDuplicate && errorList === '') {
         errorCount++;
         errorList += 'Index name already exists. Please enter unique name' + '<br>';
       }
@@ -90,14 +91,16 @@ export class FileCabinetComponent implements OnInit {
       this.fileCabinateModel.id = this.fileCabinates.length + 1;
       this.fileCabinates.splice(this.fileCabinates.length, 0, this.fileCabinateModel);
     }
+
     this.fileCabinateModel = new FileCabinateModel();
+    this.list = '';
   }
 
 
   /* save file cabinates */
   private saveFileCabinate() {
-    this.fileCabinateService.saveFileCabinate(this.fileCabinates).then(item => {
-
+    this.fileCabinateService.saveFileCabinate(this.fileCabinates).then(res => {
+      this.errorMessage.push({ severity: 'success', summary: 'Success', detail: 'Result Saved' });
     });
   }
 
@@ -106,8 +109,8 @@ export class FileCabinetComponent implements OnInit {
     this.fileCabinateModel.id = selectedFileCabinate.id;
     this.fileCabinateModel.indexName = selectedFileCabinate.indexName;
     this.fileCabinateModel.defaultValue = selectedFileCabinate.defaultValue;
-    this.fileCabinateModel.listItems = selectedFileCabinate.listItems;
-    this.fileCabinateModel.selectedIndexType = selectedFileCabinate.selectedIndexType;
+    this.fileCabinateModel.listValues = selectedFileCabinate.listValues;
+    this.fileCabinateModel.indexType = selectedFileCabinate.indexType;
   }
 
   /* deleted selected file cabinate */
