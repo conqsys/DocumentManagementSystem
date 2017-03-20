@@ -2,6 +2,7 @@
 import { ImportInfoModel } from './shared/import.model';
 import { Message } from 'primeng/primeng';
 // import { ImportInfoModel } from './shared/import.model';
+import { FileCabinateService } from '../admin/file-cabinet/shared/file-cabinate.service';
 
 @Component({
   selector: 'sp-import',
@@ -11,7 +12,7 @@ import { Message } from 'primeng/primeng';
 export class ImportComponent implements OnInit {
 
   private errorMsg: Message[] = [];
-
+  private setDefault: string = '';
   private fileCabinates: Array<ImportInfoModel> = [
     { id: 1, indexName: 'client Code', defaultValue: 'test', listValues: '', indexType: 0, list: [] },
     { id: 2, indexName: 'Misc', defaultValue: 'test1', listValues: '["test1", "test2", "test3"]', indexType: 1, list: [] },
@@ -19,8 +20,7 @@ export class ImportComponent implements OnInit {
   ];
   private uploadedFiles: Array<any> = [];
 
-  constructor() {
-
+  constructor(private fileCabinateService: FileCabinateService) {
     this.fileCabinates.map(item => {
       if (item.listValues.length > 0) {
         let test = JSON.parse(item.listValues);
@@ -33,7 +33,10 @@ export class ImportComponent implements OnInit {
 
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+
+    this.getFileCabinates();
+  }
 
   private onUpload(image) {
     for (let file of image.files) {
@@ -60,6 +63,25 @@ export class ImportComponent implements OnInit {
 
   private saveImport() {
 
+  }
+
+  public getFileCabinates() {
+    this.fileCabinateService.getFileCabinates().then(result => {
+      result.data.map(res => {
+        if (res.indexType === 1) {
+          this.setDefault = res.defaultValue;
+          let listOfValue = JSON.parse(res.listValue);
+          res.listValue = [];
+          listOfValue.map(lof => {
+            let lofDetail = { label: lof, value: lof };
+            res.listValue.push(lofDetail);
+          });
+        }
+      });
+
+      this.fileCabinates = result.data;
+      console.log(this.fileCabinates);
+    });
   }
 
 }

@@ -22,10 +22,10 @@
           <p>{{fileCabinate.indexName}}</p>
         </div>
         <div class="col-lg-4" *ngIf="fileCabinate.indexType == 1">
-          <p-dropdown [options]="fileCabinate.list" [style]="{'width':'100%'}" [(ngModel)]="import"></p-dropdown>
+          <p-dropdown [options]="fileCabinate.listValue" [(ngModel)]="fileCabinate.defaultValue" [style]="{'width':'100%'}" ></p-dropdown>
         </div>
         <div class="col-lg-4" *ngIf="fileCabinate.indexType == 0">
-          <input type="text" [(ngModel)]="import" [style]="{'width':'100%'}" class="form-control text-back-color">
+          <input type="text" [(ngModel)]="fileCabinate.defaultValue" [style]="{'width':'100%'}" class="form-control text-back-color">
         </div>
         <div class="col-lg-3"></div>
       </div>

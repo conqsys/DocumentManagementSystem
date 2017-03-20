@@ -119,7 +119,7 @@ export class FileCabinetComponent implements OnInit {
     this.fileCabinateModel.id = selectedFileCabinate.id;
     this.fileCabinateModel.indexName = selectedFileCabinate.indexName;
     this.fileCabinateModel.defaultValue = selectedFileCabinate.defaultValue;
-    this.fileCabinateModel.listValue = selectedFileCabinate.listValues;
+    this.list = selectedFileCabinate.listValue;
     this.fileCabinateModel.indexType = selectedFileCabinate.indexType;
   }
 

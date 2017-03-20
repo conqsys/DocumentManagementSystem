@@ -93,7 +93,7 @@ namespace Ticket.BusinessLogic.TicketService
         public async Task<IEnumerable<IFileIndexes>> GetListOfFileIndexes()
         {
             
-            var fileIndexesList = (await this.Connection.SelectAsync<TFileIndexes>()).OrderByDescending(i => i.Id);
+            var fileIndexesList = (await this.Connection.SelectAsync<TFileIndexes>()).OrderBy(i => i.Id);
 
 
             return fileIndexesList;

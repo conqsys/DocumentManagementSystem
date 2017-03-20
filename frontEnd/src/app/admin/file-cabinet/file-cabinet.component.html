@@ -64,8 +64,8 @@
             <p>List Items</p>
           </template>
           <template let-fileCabinate="rowData" pTemplate="body">
-            <span *ngIf="fileCabinate.listValue.length ==0"><i class="fa fa-ban" aria-hidden="true"></i></span>
-            <span *ngIf="fileCabinate.listValue.length > 0">{{fileCabinate.listValue}}</span>
+            <span *ngIf="fileCabinate.indexType ==0"><i class="fa fa-ban" aria-hidden="true"></i></span>
+            <span *ngIf="fileCabinate.indexType ==1">{{fileCabinate.listValue}}</span>
           </template>
         </p-column>
         <p-column styleClass="col-button">
