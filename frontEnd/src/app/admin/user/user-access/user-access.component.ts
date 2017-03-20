@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Message } from 'primeng/primeng';
+import { UserInfoModel } from '../index';
 
 @Component({
   selector: 'ds-admin-user-access',
@@ -7,15 +8,11 @@ import { Message } from 'primeng/primeng';
 })
 export class UserAccessComponent implements OnInit {
 
+   @Input() userDetail: UserInfoModel;
   constructor() {
   }
 
   public ngOnInit() {
-
-  }
-
-  private getUsers() {
-    let enabledRequired: Boolean = false;
 
   }
 }

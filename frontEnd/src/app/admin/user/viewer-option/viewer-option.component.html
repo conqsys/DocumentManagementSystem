@@ -1,16 +1,6 @@
 <div class="first" style="background-color: #FFC900;"><h4 style="padding: 1%"><i class="fa fa-life-ring" aria-hidden="true"></i><b> eBridge Embedded Viewer</b></h4>
 </div>
-<!--<div class="ui-grid ui-grid-responsive ui-grid-pad">
 
-    <div class="ui-grid-row" style="padding-top:10px;">
-<div class="ui-grid-col-12">
-    <b class="first"></b>
-    <div>
-       
-    </div>
-    <div class="ui-grid-row" style="padding-top:10px;">
-<b></b>
-</div>-->
 
 <div class="ui-grid-row" style="padding-top:10px; padding-bottom: 10px">
 <b>This tool used to view documents.
@@ -22,14 +12,14 @@ You may use our viewer, or a third party viewer of your choice.</b>
 </div>
 <div class="ui-grid-row">
   <div style="padding-right: 7px;"> eBridge PDF Viewer
-<p-checkbox [(ngModel)]="checked" binary="true" style="padding: 1%;"></p-checkbox>
+<p-checkbox [(ngModel)]="userDetail.isPdfViewer" binary="true" style="padding: 1%;"></p-checkbox>
 
 
 The user will need to log off abd back on for the settings to take place.
 
 </div>
 </div>
-<div>
+<div *ngIf="!userDetail.isPdfViewer">
   <div class="ui-grid-row" style="padding-left: 2%; ">
 <h4> Security</h4>
 <div class="ui-grid-row">
@@ -40,7 +30,7 @@ The user will need to log off abd back on for the settings to take place.
 <i class="fa fa-envelope" aria-hidden="true"></i><b> Email</b>
 </div>
 <div class="ui-grid-col-7">
-  <p-checkbox [(ngModel)]="checked" binary="true"></p-checkbox>
+  <p-checkbox [(ngModel)]="userDetail.isAllowEmail" binary="true"></p-checkbox>
 </div>
 </div>
 
@@ -57,7 +47,7 @@ The user will need to log off abd back on for the settings to take place.
 <i class="fa fa-print" aria-hidden="true"></i><b> Print</b>
 </div>
 <div class="ui-grid-col-7">
-  <p-checkbox [(ngModel)]="checked" binary="true"></p-checkbox>
+  <p-checkbox [(ngModel)]="userDetail.isAllowPrint" binary="true"></p-checkbox>
 </div>
 </div>
 
@@ -71,7 +61,7 @@ The user will need to log off abd back on for the settings to take place.
 <i class="fa fa-download" aria-hidden="true"></i><b> Download</b>
 </div>
 <div class="ui-grid-col-7">
-  <p-checkbox [(ngModel)]="checked" binary="true"></p-checkbox>
+  <p-checkbox [(ngModel)]="userDetail.isAllowDownload" binary="true"></p-checkbox>
 </div>
 </div>
 <div class="ui-grid-row" style="padding-left: 2%;"> Allow this user to download documents from the viewer.

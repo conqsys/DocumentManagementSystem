@@ -5,3 +5,5 @@ export * from './viewer-option';
 export * from './user-access';
 export * from './user-information';
 export * from './document-level-security';
+export * from './shared/user.model';
+export * from './shared/user.service';

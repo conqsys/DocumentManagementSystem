@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
-import { ApiUrl } from '../../../../config.component';
+import { ApiUrl } from '../../../config.component';
 
 @Injectable()
 
-export class WorkflowService {
+export class UserService {
 
     constructor(private http: Http) {
     }
 
-    public getUserDetail(): Promise<any> {
-        return this.http.get(ApiUrl.baseUrl + 'getListOfUsers').toPromise()
+    public getUserDetail(userId): Promise<any> {
+        return this.http.get(ApiUrl.baseUrl + 'userDetail/' + userId).toPromise()
 
             .then(response =>
                 response.json())

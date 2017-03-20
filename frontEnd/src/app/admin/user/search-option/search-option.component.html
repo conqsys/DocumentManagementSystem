@@ -1,17 +1,5 @@
 <div class="first" style="background-color: #FFC900;"><h4 style="padding: 1%"><i class="fa fa-life-ring" aria-hidden="true"></i><b> Wild Card Searching</b></h4>
 </div>
-<!--<div class="ui-grid ui-grid-responsive ui-grid-pad">
-
-    <div class="ui-grid-row" style="padding-top:10px;">
-<div class="ui-grid-col-12">
-    <b class="first"></b>
-    <div>
-       
-    </div>
-    <div class="ui-grid-row" style="padding-top:10px;">
-<b></b>
-</div>-->
-
 <div class="ui-grid-row" style="padding-top:10px;padding-bottom: 10px;">
 <b>Click this setting to enable the automatic wildcard feature in the eBridge Retrieval search.</b>
 
@@ -20,14 +8,14 @@
    
 </div>
 <div class="ui-grid-row">
-  <div style="padding-right: 7px;"> Wild Card <p-checkbox [(ngModel)]="checked" binary="true" style="padding:1%"></p-checkbox> 
+  <div style="padding-right: 7px;"> Wild Card <p-checkbox [(ngModel)]="userDetail.isWildCard" binary="true" style="padding:1%"></p-checkbox> 
   
        
 The user will need to log off and back on for the setting to take place
     
   </div>
 </div>
-<div style="padding-top:20px;" *ngIf="!checked">
+<div style="padding-top:20px;" >
 <div class="ui-grid-row">
   
 </div>

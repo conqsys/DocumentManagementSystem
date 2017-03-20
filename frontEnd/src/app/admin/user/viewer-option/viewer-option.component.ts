@@ -1,7 +1,6 @@
-import { Component, OnInit, } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Http } from '@angular/http';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { UserInfoModel } from '../index';
 @Component({
     selector: 'ds-admin-user-viewer-option',
     templateUrl: './viewer-option.component.html',
@@ -10,7 +9,7 @@ import { Router } from '@angular/router';
 
 export class ViewerOptionComponent implements OnInit {
 
-    checked: boolean = false;
+    @Input() userDetail: UserInfoModel;
     constructor() { }
     ngOnInit() {
 

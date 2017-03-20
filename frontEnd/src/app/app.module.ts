@@ -93,7 +93,8 @@ import {
   ViewerOptionComponent,
   UserAccessComponent,
   UserInformationComponent,
-  DocumentLevelSecurityComponent
+  DocumentLevelSecurityComponent,
+  UserService
 } from './admin/user';
 import { FileCabinetComponent } from './admin/file-cabinet/file-cabinet.component';
 
@@ -221,7 +222,7 @@ export function htttpInterceptor(xhrBackend: XHRBackend,
       useFactory: httpFactory,
       deps: [XHRBackend, RequestOptions, PubSubService]
     },
-    AuthGuard,
+     AuthGuard,
     PubSubService,
     MasterService,
     LocalStorageService,
@@ -229,6 +230,7 @@ export function htttpInterceptor(xhrBackend: XHRBackend,
     ResetPasswordService,
     LoginService,
     FileCabinateService,
+    UserService,
     {
       provide: Http,
       useFactory: htttpInterceptor,

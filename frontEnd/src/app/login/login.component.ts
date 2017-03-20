@@ -102,7 +102,7 @@ export class LoginComponent implements OnInit {
         {
           // AccountID: response.AccountID, ImageName: response.ImageName,
           // IsSuperUser: JSON.parse(response.IsSuperUser), userId: (response.userId),
-          Name: response.Name, userName: response.userName,
+          Name: response.Name, userName: response.userName,userId: (response.User.Id)
           // IsResetPasswordRequired: JSON.parse(response.IsResetPasswordRequired)
         });
 
