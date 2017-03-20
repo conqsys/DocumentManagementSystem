@@ -21,8 +21,18 @@ export class FileCabinetComponent implements OnInit {
 
   constructor(private fileCabinateService: FileCabinateService) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    this.getFileCabinates();
+  }
 
+
+  /* get  file cabinates list */
+
+  public getFileCabinates() {
+    this.fileCabinateService.getFileCabinates().then(result => {
+      this.fileCabinates = result.data;
+    });
+  }
   /* add multiple file cabinates */
   private addFileCabinate() {
 
