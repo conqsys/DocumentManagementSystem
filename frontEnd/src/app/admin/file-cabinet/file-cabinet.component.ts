@@ -15,6 +15,7 @@ export class FileCabinetComponent implements OnInit {
   /* variables declaration */
   private list: string = '';
   private errorMessage: Message[] = [];
+  private addNewCabinate: Array<any>=[];
   private fileCabinateModel: FileCabinateModel = new FileCabinateModel();
   private indexType: Array<any> = [{ label: 'Text', value: 0 }, { label: 'List', value: 1 }];
   private fileCabinates: Array<FileCabinateModel> = [];
@@ -34,76 +35,78 @@ export class FileCabinetComponent implements OnInit {
     });
   }
   /* add multiple file cabinates */
-  private addFileCabinate() {
+  private addFileCabinate(): void {
 
     let errorCount = 0;
     let errorList = '';
 
-    if (this.fileCabinateModel.indexName === '') {
-      errorCount++;
-      errorList += 'please fill index Name' + '<br>';
-    }
+    // if (this.fileCabinateModel.indexName === '') {
+    //   errorCount++;
+    //   errorList += 'please fill index Name' + '<br>';
+    // }
 
-    if (this.fileCabinateModel.defaultValue === '') {
-      errorCount++;
-      errorList += 'please fill default Name' + '<br>';
-    }
+    // if (this.fileCabinateModel.defaultValue === '') {
+    //   errorCount++;
+    //   errorList += 'please fill default Name' + '<br>';
+    // }
 
-    if (this.list === '' && this.fileCabinateModel.indexType === 1) {
-      errorCount++;
-      errorList += 'please fill atleast one list item' + '<br>';
-    }
+    // if (this.list === '' && this.fileCabinateModel.indexType === 1) {
+    //   errorCount++;
+    //   errorList += 'please fill atleast one list item' + '<br>';
+    // }
 
-    if (this.list !== '') {
-      this.fileCabinateModel.listValue = JSON.stringify(this.list.split('\n'));
-    }
+    // if (this.list !== '') {
+    //   this.fileCabinateModel.listValue = JSON.stringify(this.list.split('\n'));
+    // }
 
     /* check default valus is exists in List items */
-    if (this.fileCabinateModel.indexType === 1 &&
-      this.list !== '' && this.fileCabinateModel.defaultValue !== '') {
-      let checkDefaultValueExist = 0;
-      let listArray = this.list.split('\n');
-      listArray.forEach((element) => {
-        if (element === this.fileCabinateModel.defaultValue) {
-          checkDefaultValueExist++;
-        }
-      });
+    // if (this.fileCabinateModel.indexType === 1 &&
+    //   this.list !== '' && this.fileCabinateModel.defaultValue !== '') {
+    //   let checkDefaultValueExist = 0;
+    //   let listArray = this.list.split('\n');
+    //   listArray.forEach((element) => {
+    //     if (element === this.fileCabinateModel.defaultValue) {
+    //       checkDefaultValueExist++;
+    //     }
+    //   });
 
-      if (checkDefaultValueExist === 0 && errorList === '') {
-        errorCount++;
-        errorList += 'Default value should be in List Items' + '<br>';
-      }
-    }
+    //   if (checkDefaultValueExist === 0 && errorList === '') {
+    //     errorCount++;
+    //     errorList += 'Default value should be in List Items' + '<br>';
+    //   }
+    // }
 
     /* check IndexName is already exits or not */
-    if (this.fileCabinateModel.indexName && this.fileCabinates.length > 0 && this.fileCabinateModel.id === 0) {
-      let checkIndexNameDuplicate = false;
-      this.fileCabinates.map(item => {
-        if (item.indexName === this.fileCabinateModel.indexName) {
-          checkIndexNameDuplicate = true;
-        }
-      });
-      if (checkIndexNameDuplicate && errorList === '') {
-        errorCount++;
-        errorList += 'Index name already exists. Please enter unique name' + '<br>';
-      }
-    }
+    // if (this.fileCabinateModel.indexName && this.fileCabinates.length > 0 && this.fileCabinateModel.id === 0) {
+    //   let checkIndexNameDuplicate = false;
+    //   this.fileCabinates.map(item => {
+    //     if (item.indexName === this.fileCabinateModel.indexName) {
+    //       checkIndexNameDuplicate = true;
+    //     }
+    //   });
+    //   if (checkIndexNameDuplicate && errorList === '') {
+    //     errorCount++;
+    //     errorList += 'Index name already exists. Please enter unique name' + '<br>';
+    //   }
+    // }
 
-    if (errorCount > 0) {
-      this.errorMessage.push({ severity: 'error', detail: errorList });
-      return;
-    }
+    // if (errorCount > 0) {
+    //   this.errorMessage.push({ severity: 'error', detail: errorList });
+    //   return;
+    // }
+ //   this.fileCabinateModel = new FileCabinateModel();
+    this.addNewCabinate.push(new FileCabinateModel());
 
-    if (this.fileCabinateModel.id !== 0) { /* check new case or an update case */
-      this.fileCabinates.splice(this.fileCabinateModel.id - 1, 1);
-      this.fileCabinates.splice(this.fileCabinateModel.id - 1, 0, this.fileCabinateModel);
-    } else {
-      this.fileCabinateModel.id = this.fileCabinates.length + 1;
-      this.fileCabinates.splice(this.fileCabinates.length, 0, this.fileCabinateModel);
-    }
+    // if (this.fileCabinateModel.id !== 0) { /* check new case or an update case */
+    //   this.fileCabinates.splice(this.fileCabinateModel.id - 1, 1);
+    //   this.fileCabinates.splice(this.fileCabinateModel.id - 1, 0, this.fileCabinateModel);
+    // } else {
+    //   this.fileCabinateModel.id = this.fileCabinates.length + 1;
+    //   this.fileCabinates.splice(this.fileCabinates.length, 0, this.fileCabinateModel);
+    // }
 
-    this.fileCabinateModel = new FileCabinateModel();
-    this.list = '';
+    // this.fileCabinateModel = new FileCabinateModel();
+    // this.list = '';
   }
 
 
