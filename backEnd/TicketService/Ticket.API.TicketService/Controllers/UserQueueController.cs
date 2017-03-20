@@ -44,7 +44,7 @@ namespace Ticket.API.TicketService
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateImportFile([FromBody]UserQueue userQueue)
+        public async Task<IActionResult> UpdateUserQueue([FromBody]UserQueue userQueue)
         {
             try
             {

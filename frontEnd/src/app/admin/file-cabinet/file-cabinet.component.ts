@@ -45,7 +45,7 @@ export class FileCabinetComponent implements OnInit {
     }
 
     if (this.list !== '') {
-      this.fileCabinateModel.listValues = JSON.stringify(this.list.split('\n'));
+      this.fileCabinateModel.listValue = JSON.stringify(this.list.split('\n'));
     }
 
     /* check default valus is exists in List items */
@@ -109,7 +109,7 @@ export class FileCabinetComponent implements OnInit {
     this.fileCabinateModel.id = selectedFileCabinate.id;
     this.fileCabinateModel.indexName = selectedFileCabinate.indexName;
     this.fileCabinateModel.defaultValue = selectedFileCabinate.defaultValue;
-    this.fileCabinateModel.listValues = selectedFileCabinate.listValues;
+    this.fileCabinateModel.listValue = selectedFileCabinate.listValues;
     this.fileCabinateModel.indexType = selectedFileCabinate.indexType;
   }
 

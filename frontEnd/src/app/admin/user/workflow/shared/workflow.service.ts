@@ -12,7 +12,7 @@ export class WorkflowService {
     }
 
     public getUserDetail(): Promise<any> {
-        return this.http.get(ApiUrl.baseUrl + 'getListOfUsers').toPromise()
+        return this.http.get(ApiUrl.baseUrl + 'Queue/getListOfUsers').toPromise()
 
             .then(response =>
                 response.json())

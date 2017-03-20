@@ -16,8 +16,8 @@ export class FileCabinateService {
   //     .toPromise());
   // }
 
-  public saveFileCabinate(fileCabinate: Array<FileCabinateModel>): Promise<any> {
-    return new PromiseHandler<PostObjectResponseModel<FileCabinateModel>>(this.http
+  public saveFileCabinate(fileCabinate): Promise<any> {
+     return new PromiseHandler<PostObjectResponseModel<FileCabinateModel>>(this.http
       .post(ApiUrl.baseUrl + 'FileIndexes', fileCabinate)
       .toPromise()
       .catch(err => console.log(err)));

@@ -5,7 +5,8 @@ import { Router } from '@angular/router';
 
 import { UserModel } from '../../../shared/models/user.model';
 import { MasterService } from '../../../shared/services/master/master.service';
-import { WorkflowService, QueueModel } from './index';
+import { QueueModel } from './index';
+import { WorkflowService } from './shared/workflow.service';
 import { UserInfoModel } from '../index';
 @Component({
   selector: 'ds-admin-user-workflow',
@@ -16,7 +17,7 @@ import { UserInfoModel } from '../index';
 export class WorkflowComponent implements OnInit {
 
 
-  // @Input() userDetail: UserInfoModel;
+  @Input() userDetail: UserInfoModel;
   private checked: boolean = false;
   private selectedUser: number;
   private queues: Array<any> = new Array<any>();
@@ -26,8 +27,8 @@ export class WorkflowComponent implements OnInit {
   constructor(private http: Http,
     router: Router,
     private activatedRoute: ActivatedRoute,
-    private masterService: MasterService
-    // private workflowService: WorkflowService
+    private masterService: MasterService,
+    private workflowService: WorkflowService
   ) {
     // this.queues = [];
 
@@ -45,17 +46,18 @@ export class WorkflowComponent implements OnInit {
         item.label = item.userName;
         item.value = item.userId;
       });
-      // this.getQueues();
+      this.getQueues();
     }).catch(err => {
       this.errorMsg.push({ severity: 'error', summary: 'Warn Message', detail: err.ValidatonResult.errorMessage });
     });
   }
   private getQueues(): void {
-    // this.workflowService.getUserDetail().then(res => {
-    // //  this.queues = res;
-    // }).catch(err => {
-    //   this.errorMsg.push({ severity: 'error', summary: 'Warn Message', detail: err.ValidatonResult.errorMessage });
-    // });
+    this.workflowService.getUserDetail().then(res => {
+     this.queues = res;
+     console.log(this.queues);
+    }).catch(err => {
+      this.errorMsg.push({ severity: 'error', summary: 'Warn Message', detail: err.ValidatonResult.errorMessage });
+    });
   }
 
   private onSelectQueue(queue): void {
