@@ -13,8 +13,13 @@
         <button pButton type="text" (click)="addFileCabinate()" icon="fa-plus" label="Add"></button>
       </div>
     </div>
-  <div class="ui-grid-row" *ngFor="let cabinate of addNewCabinate" >
+  <div class="ui-grid-row" style="padding: 1%;" *ngFor="let cabinate of addNewCabinate;let i = index" >
     <div>
+     
+   
+     <div class="ui-grid-row">  <b>Index {{i+1}}</b></div>
+  
+
      <div class="ui-grid-col-1"></div>
   
     <div class="ui-grid-col-3">
