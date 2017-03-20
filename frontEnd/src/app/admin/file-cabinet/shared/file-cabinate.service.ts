@@ -10,11 +10,12 @@ export class FileCabinateService {
   constructor(private http: Http) { }
 
   /* save function of file cabinate */
-  // public saveFileCabinate(fileCabinate: Array<FileCabinateModel>): Promise<any> {
-  //   return new PromiseHandler<PostObjectResponseModel<FileCabinateModel>>(this.http
-  //     .post(ApiUrl.baseUrl + 'FileIndexes/GetListOfFileIndexes/', fileCabinate)
-  //     .toPromise());
-  // }
+  public getFileCabinates(): Promise<any> {
+    return new PromiseHandler<PostObjectResponseModel<FileCabinateModel>>(
+       this.http
+      .get(ApiUrl.baseUrl + 'FileIndexes/GetListOfFileIndexes/')
+      .toPromise());
+  }
 
   public saveFileCabinate(fileCabinate): Promise<any> {
      return new PromiseHandler<PostObjectResponseModel<FileCabinateModel>>(this.http
