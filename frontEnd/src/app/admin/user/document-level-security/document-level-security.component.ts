@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-import { Message } from 'primeng/primeng';
+import { UserInfoModel } from '../index';
 @Component({
   selector: 'ds-admin-user-level-security',
   templateUrl: './document-level-security.component.html',
@@ -8,13 +8,9 @@ import { Message } from 'primeng/primeng';
 })
 export class DocumentLevelSecurityComponent implements OnInit {
 
-  private errorMsg: Message[] = [];
-  private timeZones =[];
+   @Input() userDetail: UserInfoModel;
   constructor() {
-    this.timeZones.push({label: '(UTC-05:00)Eastern Standard Time', value: {id: 1, name: 'New York', code: 'NY'}});
-        this.timeZones.push({label: '(UTC-10:00) Western Standard Time', value: {id: 2, name: 'Rome', code: 'RM'}});
-        this.timeZones.push({label: '(UTC-08:00) Northern Standard Time', value: {id: 3, name: 'London', code: 'LDN'}});
-        this.timeZones.push({label: '(UTC-01:00) Southern Standard Time', value: {id: 4, name: 'Istanbul', code: 'IST'}});
+  
    }
   public ngOnInit() {
   }

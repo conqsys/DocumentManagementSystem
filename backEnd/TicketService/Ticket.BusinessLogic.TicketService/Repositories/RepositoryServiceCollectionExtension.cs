@@ -31,7 +31,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IImportFileRepository, ImportFileRepository<ImportFile>>();
             services.AddScoped<IUserDetailRepository, UserDetailRepository<UserDetail>>();
             services.AddScoped<IQueueRepository, QueueRepository<Queue>>();
-            
+            services.AddScoped<IUserQueueRepository, UserQueueRepository<UserQueue>>();
+
             services.AddScoped<EmailTemplateRepository>();
             return services;
         }

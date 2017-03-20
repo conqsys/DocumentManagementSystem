@@ -11,10 +11,17 @@ import { Message } from 'primeng/primeng';
 export class ImportComponent implements OnInit {
 
   private errorMsg: Message[] = [];
+<<<<<<< HEAD
   private fileCabinates: Array<ImportInfoModel> = [
     { id: 1, indexName: 'client Code', defaultValue: 'test', listValues: '', indexType: 0, list: [] },
     { id: 2, indexName: 'Misc', defaultValue: 'test1', listValues: '["test1", "test2", "test3"]', indexType: 1, list: [] },
     { id: 3, indexName: 'Comments', defaultValue: 'test', listValues: '', indexType: 0, list: [] }
+=======
+  private fileCabinates: Array<any> = [
+    { id: 1, indexName: 'client Code', defaultValue: 'test', listValues: [], indexType: 0 },
+    { id: 2, indexName: 'Misc', defaultValue: 'test1', listValues: ['test1', 'test2', 'test3'], indexType: 1 },
+    { id: 3, indexName: 'Comments', defaultValue: 'test', listValues: [], indexType: 0 }
+>>>>>>> 524eff4ddf12c37d307f9cff7b0049e40595661c
   ];
   private uploadedFiles: Array<any> = [];
 

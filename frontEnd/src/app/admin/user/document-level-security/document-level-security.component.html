@@ -1,69 +1,3 @@
-<!--<h3 class="first">Document Level Security</h3>
-<div class="ui-grid ui-grid-responsive ui-grid-pad">
-    <div class="ui-grid-row" style="padding-top:10px;">
-        <div class="ui-grid-col-6">
-            <h3 class="first">Personal Information</h3>
-            <div class="ui-grid-col-4">
-                Client Code
-            </div>
-            <div class="ui-grid-col-8">
-                <input pInputText type="text" />
-            </div>
-        </div>
-    </div>
-    <div class="ui-grid-row">
-        <div class="ui-grid-col-6">
-            <div class="ui-grid-col-4">
-                MM-DD-YYYY
-            </div>
-            <div class="ui-grid-col-8">
-                <input pInputText type="text" />
-            </div>
-        </div>
-    </div>
-    <div class="ui-grid-row">
-        <div class="ui-grid-col-6">
-            <div class="ui-grid-col-4">
-                Batch#
-            </div>
-            <div class="ui-grid-col-8">
-                <input pInputText type="text" />
-            </div>
-        </div>
-
-    </div>
-
-    <div class="ui-grid-row">
-        <div class="ui-grid-col-6">
-            <div class="ui-grid-col-4">
-                Batch Type
-            </div>
-            <div class="ui-grid-col-8">
-                <input pInputText type="text" />
-            </div>
-        </div>
-    </div>
-    <div class="ui-grid-row">
-        <div class="ui-grid-col-6">
-            <div class="ui-grid-col-4">
-                Status
-            </div>
-            <div class="ui-grid-col-8">
-                <input pInputText type="text" />
-            </div>
-        </div>
-    </div>
-    <div class="ui-grid-row">
-    <div class="ui-grid-col-6">
-        <div class="ui-grid-col-4">
-            Misc
-        </div>
-        <div class="ui-grid-col-8">
-            <input pInputText type="text" />
-        </div>
-    </div>
-    </div>
-</div>-->
 <div >
 <div class="ui-grid ui-grid-responsive ui-grid-pad" >
 <div class="first" style="background-color: #FFC900;"><h4 style="padding: 1%"><i class="fa fa-life-ring" aria-hidden="true"></i><b> Document Level Security</b></h4>
@@ -81,7 +15,7 @@
     </div>
     <div class="ui-grid-row">
         
-            <input pInputText size="40" type="text" />
+            <input pInputText size="40" type="text" [(ngModel)]="userDetail.clientCode"/>
         
     </div>
     <div class="ui-grid-row">
@@ -91,7 +25,7 @@
     </div>
     <div class="ui-grid-row">
         
-            <input pInputText size="40" type="text" />
+            <input pInputText size="40" type="text"  [(ngModel)]="userDetail.date" />
         
     </div>
     <div class="ui-grid-row">
@@ -101,7 +35,7 @@
     </div>
     <div class="ui-grid-row">
         
-            <input pInputText size="40" type="text" />
+            <input pInputText size="40" type="text"  [(ngModel)]="userDetail.batchNumber"  />
         
     </div>
     <div class="ui-grid-row">
@@ -111,7 +45,7 @@
     </div>
     <div class="ui-grid-row">
         
-            <input pInputText size="40" type="text" />
+            <input pInputText size="40" type="text" [(ngModel)]="userDetail.batchType"/>
         
     </div>
     <div class="ui-grid-row">
@@ -121,7 +55,7 @@
     </div>
     <div class="ui-grid-row">
         
-            <input pInputText size="40" type="text" />
+            <input pInputText size="40" type="text"  [(ngModel)]="userDetail.status" />
         
     </div>
     <div class="ui-grid-row">
@@ -131,7 +65,7 @@
     </div>
     <div class="ui-grid-row">
         
-            <input pInputText size="40" type="text" />
+            <input pInputText size="40" type="text"  [(ngModel)]="userDetail.misc" />
         
     </div>
 </div>

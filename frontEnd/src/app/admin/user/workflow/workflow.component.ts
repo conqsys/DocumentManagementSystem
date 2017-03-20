@@ -1,10 +1,12 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Http } from '@angular/http';
 import { Router } from '@angular/router';
 
 import { UserModel } from '../../../shared/models/user.model';
 import { MasterService } from '../../../shared/services/master/master.service';
+import { WorkflowService, QueueModel } from './index';
+import { UserInfoModel } from '../index';
 @Component({
   selector: 'ds-admin-user-workflow',
   templateUrl: './workflow.component.html',
@@ -14,9 +16,10 @@ import { MasterService } from '../../../shared/services/master/master.service';
 export class WorkflowComponent implements OnInit {
 
 
+  // @Input() userDetail: UserInfoModel;
   private checked: boolean = false;
   private selectedUser: number;
-  private queues: Array<any> = [];
+  private queues: Array<any> = new Array<any>();
   private selectedIndex: number = -1;
   private errorMsg: Array<any> = [];
   private users: Array<UserModel> = new Array<UserModel>();
@@ -24,19 +27,10 @@ export class WorkflowComponent implements OnInit {
     router: Router,
     private activatedRoute: ActivatedRoute,
     private masterService: MasterService
+    // private workflowService: WorkflowService
   ) {
-    this.queues = [];
+    // this.queues = [];
 
-    this.queues.push({ label: 'queue 6', value: '6', isCheck: false });
-    this.queues.push({ label: 'queue 1', value: '1', isCheck: false });
-    this.queues.push({ label: 'queue 2', value: '2', isCheck: false });
-    this.queues.push({ label: 'queue 3', value: '3', isCheck: false });
-    this.queues.push({ label: 'queue 4', value: '4', isCheck: false });
-    this.queues.push({ label: 'queue 5', value: '5', isCheck: false });
-    this.queues.push({ label: 'queue 7', value: '7', isCheck: false });
-    this.queues.push({ label: 'queue 8', value: '8', isCheck: false });
-    this.queues.push({ label: 'queue 9', value: '9', isCheck: false });
-    this.queues.push({ label: 'queue 10', value: '10', isCheck: false });
   }
   ngOnInit() {
     this.getUserList();
@@ -46,20 +40,27 @@ export class WorkflowComponent implements OnInit {
     let enabledRequired: Boolean = false;
     this.masterService.getUserList(enabledRequired).then(result => {
       this.users = result.data;
-      this.users.splice(0, 0, new UserModel( ));
+      this.users.splice(0, 0, new UserModel());
       this.users.map((item: any) => {
         item.label = item.userName;
         item.value = item.userId;
       });
-      // this.getClients();
+      // this.getQueues();
     }).catch(err => {
       this.errorMsg.push({ severity: 'error', summary: 'Warn Message', detail: err.ValidatonResult.errorMessage });
     });
   }
+  private getQueues(): void {
+    // this.workflowService.getUserDetail().then(res => {
+    // //  this.queues = res;
+    // }).catch(err => {
+    //   this.errorMsg.push({ severity: 'error', summary: 'Warn Message', detail: err.ValidatonResult.errorMessage });
+    // });
+  }
 
-  onSelectQueue(queue): void {
+  private onSelectQueue(queue): void {
     this.queues.map(res => {
-      if (res.value === queue.value) {
+      if (res.id === queue.id) {
         res.isCheck = !res.isCheck;
       }
     });

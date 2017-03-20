@@ -1,0 +1,33 @@
+export class UserInfoModel {
+    firstName: string = '';
+    lastName: string = '';
+    emailAddress: string = '';
+    userName: string = '';
+    password: string = '';
+    timeZone: any;
+    changePasswordAtLogOn: boolean;
+    changePasswordAtSixtyDays: boolean;
+    enforcePasswordHistory: boolean;
+    viewDocuments: boolean;
+    importDocuments: boolean;
+    deleteDocuments: boolean;
+    editIndexes: boolean;
+    scanImages: boolean;
+    createReports: boolean;
+    changeOrViewSettings: boolean;
+    workFlowAdmin: boolean;
+    clientCode: string = '';
+    date: Date;
+    batchNumber: string = '';
+    batchType: string = '';
+    status: string = '';
+    misc: string = '';
+    userId: number = 0;
+    isPdfViewer: boolean;
+    isAllowEmail: boolean;
+    isAllowPrint: boolean;
+    isAllowDownload: boolean;
+    isWildCard: boolean;
+    isAllowWorkflow: boolean;
+    isRouteUser: boolean;
+}

@@ -1,7 +1,6 @@
-import { Component, OnInit, } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Http } from '@angular/http';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { UserInfoModel } from '../index';
 @Component({
     selector: 'ds-admin-user-search-option',
     templateUrl: './search-option.component.html',
@@ -10,9 +9,9 @@ import { Router } from '@angular/router';
 
 export class SearchOptionComponent implements OnInit {
 
- checked: boolean = false;
-constructor() {}
-ngOnInit() {
+    @Input() userDetail: UserInfoModel;
+    constructor() { }
+    ngOnInit() {
 
     }
 

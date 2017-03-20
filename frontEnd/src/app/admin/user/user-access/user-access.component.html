@@ -11,7 +11,7 @@
                        View Documents
             </div>
             <div class="ui-grid-col-2">
-                <p-checkbox binary="true"></p-checkbox>
+                <p-checkbox binary="true" [(ngModel)]="userDetail.viewDocuments"></p-checkbox>
                 </div>
     </div>
     <div class="ui-grid-row">
@@ -22,7 +22,7 @@
                        Import Documents
             </div>
             <div class="ui-grid-col-2">
-                <p-checkbox binary="true"></p-checkbox>
+                <p-checkbox binary="true"  [(ngModel)]="userDetail.importDocuments"></p-checkbox>
                 </div>
     </div>
     <div class="ui-grid-row">
@@ -34,7 +34,7 @@
                        Delete Documents
             </div>
             <div class="ui-grid-col-2">
-                <p-checkbox binary="true"></p-checkbox>
+                <p-checkbox binary="true"  [(ngModel)]="userDetail.deleteDocuments"></p-checkbox>
                 </div>
     </div>
     <div class="ui-grid-row">
@@ -46,7 +46,7 @@
                        Edit Indexes
             </div>
             <div class="ui-grid-col-2">
-                <p-checkbox binary="true"></p-checkbox>
+                <p-checkbox binary="true"  [(ngModel)]="userDetail.editIndexes"></p-checkbox>
                 </div>
     </div>
     <div class="ui-grid-row">
@@ -58,7 +58,7 @@
                        Scan Images
             </div>
             <div class="ui-grid-col-2">
-                <p-checkbox binary="true"></p-checkbox>
+                <p-checkbox binary="true"  [(ngModel)]="userDetail.scanImages"></p-checkbox>
                 </div>
     </div>
     <div class="ui-grid-row">
@@ -70,7 +70,7 @@
                        Create Reports
             </div>
             <div class="ui-grid-col-2">
-                <p-checkbox binary="true"></p-checkbox>
+                <p-checkbox binary="true" [(ngModel)]="userDetail.createReports"></p-checkbox>
                 </div>
     </div>
     <div class="ui-grid-row">
@@ -82,7 +82,7 @@
                        Change/View Settings
             </div>
             <div class="ui-grid-col-2">
-                <p-checkbox binary="true"></p-checkbox>
+                <p-checkbox binary="true" [(ngModel)]="userDetail.changeOrViewSettings"></p-checkbox>
                 </div>
     </div>
     <div class="ui-grid-row">
