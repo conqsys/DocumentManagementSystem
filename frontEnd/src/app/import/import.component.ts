@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit } from '@angular/core';
-import { FileCabinateModel } from '../admin/file-cabinet/shared/file-cabinate.model';
+import { ImportInfoModel } from './shared/import.model';
 import { Message } from 'primeng/primeng';
 // import { ImportInfoModel } from './shared/import.model';
 
@@ -11,10 +11,10 @@ import { Message } from 'primeng/primeng';
 export class ImportComponent implements OnInit {
 
   private errorMsg: Message[] = [];
-  private fileCabinates: Array<FileCabinateModel> = [
-    { id: 1, indexName: 'client Code', defaultValue: 'test', listValues: [], indexType: 0 },
-    { id: 2, indexName: 'Misc', defaultValue: 'test1', listValues: ['test1', 'test2', 'test3'], indexType: 1 },
-    { id: 3, indexName: 'Comments', defaultValue: 'test', listValues: [], indexType: 0 }
+  private fileCabinates: Array<ImportInfoModel> = [
+    { id: 1, indexName: 'client Code', defaultValue: 'test', listValues: '', indexType: 0, list: [] },
+    { id: 2, indexName: 'Misc', defaultValue: 'test1', listValues: '["test1", "test2", "test3"]', indexType: 1, list: [] },
+    { id: 3, indexName: 'Comments', defaultValue: 'test', listValues: '', indexType: 0, list: [] }
   ];
   private uploadedFiles: Array<any> = [];
 
@@ -22,11 +22,10 @@ export class ImportComponent implements OnInit {
 
     this.fileCabinates.map(item => {
       if (item.listValues.length > 0) {
-        let test = item.listValues;
-        item.listValues = [];
+        let test = JSON.parse(item.listValues);
         test.map(list => {
           let demo = { label: list, value: list };
-          item.listValues.push(demo);
+          item.list.push(demo);
         });
       }
     });
