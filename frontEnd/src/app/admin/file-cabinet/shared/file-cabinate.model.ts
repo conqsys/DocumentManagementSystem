@@ -7,5 +7,6 @@ export class FileCabinateModel {
   listValue: string = '';
   indexType: number = 0;
   list: string = '';
+  userId: any;
 
 }

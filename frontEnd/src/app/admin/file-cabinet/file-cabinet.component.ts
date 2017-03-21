@@ -2,6 +2,7 @@ import { Component, OnInit, } from '@angular/core';
 import { Message } from 'primeng/primeng';
 import { FileCabinateModel } from './shared/file-cabinate.model';
 import { FileCabinateService } from './shared/file-cabinate.service';
+import { LocalStorageService } from 'angular-2-local-storage';
 
 
 @Component({
@@ -20,8 +21,20 @@ export class FileCabinetComponent implements OnInit {
   private indexType: Array<any> = [{ label: 'Text', value: 0 }, { label: 'List', value: 1 }];
   private fileCabinates: Array<FileCabinateModel> = [];
   private hideSaveButton: boolean = true;
+  private user: any = {};
 
-  constructor(private fileCabinateService: FileCabinateService) { }
+  constructor(private fileCabinateService: FileCabinateService,  private localStorageService: LocalStorageService) {
+
+     if (this.localStorageService.get('authorization') && this.localStorageService.get('authorization') !== 'undefined') {
+            this.user = this.localStorageService.get('sessionData');
+            this.fileCabinateModel.userId = this.user.userId;
+         //   this.user = this.localStorageService.get('sessionData');
+            // this.userService.getUserDetail(this.user.userId).then(res => {
+            //     this.userDetail = res;
+            //     console.log(this.userDetail);
+            // });
+        }
+   }
 
   ngOnInit() {
     this.getFileCabinates();
@@ -80,10 +93,10 @@ export class FileCabinetComponent implements OnInit {
       if (this.addNewCabinate[this.addNewCabinate.length - 1].indexName && this.addNewCabinate.length - 1 > 0
         && this.addNewCabinate[this.addNewCabinate.length - 1].id === 0) {
         let checkIndexNameDuplicate = false;
-        let count = 0
+        let count = 0;
         this.addNewCabinate.map(item => {
           if (item.indexName === this.addNewCabinate[this.addNewCabinate.length - 1].indexName) {
-            count++
+            count++;
             if (count > 1) {
               checkIndexNameDuplicate = true;
             }
@@ -101,12 +114,12 @@ export class FileCabinetComponent implements OnInit {
         this.errorMessage.push({ severity: 'error', detail: errorList });
         return false;
       } else {
-        if (isAddNew == false) {
+        if (isAddNew === false) {
           return true;
         }
       }
     }
-    if (isAddNew == true) {
+    if (isAddNew === true) {
       this.addNewCabinate.push(new FileCabinateModel());
     }
   }
