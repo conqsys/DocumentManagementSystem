@@ -26,7 +26,7 @@ namespace Ticket.API.TicketService
 
 
         [HttpPost]
-        public async Task<IActionResult> SaveFileIndexes([FromBody]List<FileIndexes> fileIndexes)
+        public async Task<IActionResult> SaveFileIndexes([FromBody]FileIndexes fileIndexes)
         {
             try
             {

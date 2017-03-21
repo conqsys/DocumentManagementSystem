@@ -9,7 +9,7 @@ namespace Ticket.Base.Repositories
 {
     public interface IFileIndexesRepository : IDepRepository
     {
-        Task<bool> AddNew(IEnumerable<IFileIndexes> entity);
+        Task<IFileIndexes> AddNew(IFileIndexes entity);
 
         Task<IFileIndexes> Update(IFileIndexes entity);
 

@@ -30,32 +30,30 @@ namespace Ticket.BusinessLogic.TicketService
         }
 
 
-        public async Task<bool> AddNew(IEnumerable<IFileIndexes> entities)
+        public async Task<IFileIndexes> AddNew(IFileIndexes entity)
         {
-            foreach (IFileIndexes entity in entities)
+            TFileIndexes tEntity = entity as TFileIndexes;
+
+            var errors = await this.ValidateEntityToCheckExists(tEntity);
+            if (errors.Count() > 0)
+                await this.ThrowEntityException(errors);
+
+            try
             {
-                TFileIndexes tEntity = entity as TFileIndexes;
+                this.StartTransaction();
+                var savedEntity = await base.AddNew(entity as TFileIndexes);
+                this.CommitTransaction();
 
-                var errors = await this.ValidateEntityToCheckExists(tEntity);
-                if (errors.Count() > 0)
-                    await this.ThrowEntityException(errors);
-
-                try
-                {
-                    this.StartTransaction();
-                    var savedEntity = await base.AddNew(entity as TFileIndexes);
-                    this.CommitTransaction();
-                }
-                catch (PostgresException ex)
-                {
-                    throw new EntityUpdateException(ex);
-                }
-                catch
-                {
-                    throw;
-                }
+                return savedEntity;
             }
-            return true;
+            catch (PostgresException ex)
+            {
+                throw new EntityUpdateException(ex);
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         public async Task<IFileIndexes> Update(IFileIndexes entity)

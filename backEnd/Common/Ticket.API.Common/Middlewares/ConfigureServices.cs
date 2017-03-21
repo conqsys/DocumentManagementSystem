@@ -28,8 +28,8 @@ namespace Microsoft.Extensions.DependencyInjection
                 options.SingleApiVersion(new Swashbuckle.Swagger.Model.Info
                 {
                     Version = "v1",
-                    Title = "Molecular Sample API",
-                    Description = "REST API Access to Molecular System",
+                    Title = "Document Management System API",
+                    Description = "REST API Access to Document Management System",
                     TermsOfService = "None"
                 });
                 options.DescribeAllEnumsAsStrings();
