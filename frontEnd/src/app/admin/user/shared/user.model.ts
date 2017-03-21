@@ -30,4 +30,5 @@ export class UserInfoModel {
     isWildCard: boolean;
     isAllowWorkflow: boolean;
     isRouteUser: boolean;
+    queues:Array<any>= new Array<any>();
 }

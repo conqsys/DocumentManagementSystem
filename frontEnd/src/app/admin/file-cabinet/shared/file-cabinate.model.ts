@@ -6,5 +6,6 @@ export class FileCabinateModel {
   defaultValue: string = '';
   listValue: string = '';
   indexType: number = 0;
+  list: string = '';
 
 }

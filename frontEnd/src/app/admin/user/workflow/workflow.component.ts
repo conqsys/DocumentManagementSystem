@@ -20,7 +20,7 @@ export class WorkflowComponent implements OnInit {
   @Input() userDetail: UserInfoModel;
   private checked: boolean = false;
   private selectedUser: number;
-  private queues: Array<any> = new Array<any>();
+ // private queues: Array<any> = new Array<any>();
   private selectedIndex: number = -1;
   private errorMsg: Array<any> = [];
   private users: Array<UserModel> = new Array<UserModel>();
@@ -53,15 +53,15 @@ export class WorkflowComponent implements OnInit {
   }
   private getQueues(): void {
     this.workflowService.getUserDetail().then(res => {
-     this.queues = res;
-     console.log(this.queues);
+     this.userDetail.queues = res;
+     console.log(this.userDetail.queues);
     }).catch(err => {
       this.errorMsg.push({ severity: 'error', summary: 'Warn Message', detail: err.ValidatonResult.errorMessage });
     });
   }
 
   private onSelectQueue(queue): void {
-    this.queues.map(res => {
+    this.userDetail.queues.map(res => {
       if (res.id === queue.id) {
         res.isCheck = !res.isCheck;
       }
