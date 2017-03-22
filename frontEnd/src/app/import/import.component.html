@@ -7,15 +7,16 @@
     <div class="row">
       <div class="col-lg-3"></div>
       <div class="col-lg-6">
-        <p-fileUpload name="uploadFile[]" [style]="{'width':'100%'}" (onSelect)="onUpload($event)" url="http://localhost:3000/upload"
+        <p-fileUpload name="uploadFile[]" [style]="{'width':'100%'}" (change)="onUpload($event)" url="http://localhost:3000/upload"
           accept=""></p-fileUpload>
         <!--<input id="member_PictureFile" name="member[PictureFile]" type="file" #input (change)="onUpload(input)" accept="image/*">-->
+ 
       </div>
       <div class="col-lg-3"></div>
     </div>
     <br>
 
-    <div *ngFor="let fileCabinate of fileCabinates">
+    <div *ngFor="let fileCabinate of importDetail.listValue">
       <div class="row">
         <div class="col-lg-3"></div>
         <div class="col-lg-2">

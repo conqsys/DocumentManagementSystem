@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
     private location: Location,
     private toastr: ToastsManager,
     public pubsub: PubSubService) {
-
     this.loginModel = new LoginModel();
   }
 
