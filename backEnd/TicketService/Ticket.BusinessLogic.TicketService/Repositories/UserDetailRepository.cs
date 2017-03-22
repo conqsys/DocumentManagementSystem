@@ -1,5 +1,4 @@
-﻿
-using Ticket.DataAccess.Common;
+﻿using Ticket.DataAccess.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +20,8 @@ namespace Ticket.BusinessLogic.TicketService
 {
     public class UserDetailRepository<TUserDetail> : ModuleBaseRepository<TUserDetail>, IUserDetailRepository
         where TUserDetail : class, IUserDetail, new()
-
-
     {
+        private IUserQueueRepository _userQueueRepository;
         public UserDetailRepository(BaseValidationErrorCodes errorCodes, DatabaseContext dbContext, IUser loggedUser)
             : base(errorCodes, dbContext, loggedUser)
         {
@@ -34,16 +32,14 @@ namespace Ticket.BusinessLogic.TicketService
         {
             TUserDetail tEntity = entity as TUserDetail;
 
-            var errors = await this.ValidateEntityToCheckExists(tEntity);
-            if (errors.Count() > 0)
-                await this.ThrowEntityException(errors);
-
             try
             {
                 this.StartTransaction();
                 var savedEntity = await base.AddNew(entity as TUserDetail);
+                var userid = savedEntity.Id;
+                await this._userQueueRepository.AddNew(entity.Queues, userid);
+                var userId = savedEntity.Id;
                 this.CommitTransaction();
-
                 return savedEntity;
             }
             catch (PostgresException ex)
@@ -59,11 +55,6 @@ namespace Ticket.BusinessLogic.TicketService
         public async Task<IUserDetail> Update(IUserDetail entity)
         {
             TUserDetail tEntity = entity as TUserDetail;
-
-            var errors = await this.ValidateEntityToCheckExistsAtUpdate(tEntity);
-            if (errors.Count() > 0)
-                await this.ThrowEntityException(errors);
-
             try
             {
                 this.StartTransaction();
@@ -90,18 +81,11 @@ namespace Ticket.BusinessLogic.TicketService
                 throw;
             }
         }
-        
+
         public async Task Delete(long id)
         {
             try
-            {
-                ICollection<IValidationResult> errors = new List<IValidationResult>();
-
-
-
-                if (errors.Count() > 0)
-                    await this.ThrowEntityException(errors);
-
+            {   
                 this.StartTransaction();
                 var entity = await this.Connection.FirstOrDefaultAsync<TUserDetail>(i => i.Id == id);
                 await this.Connection.DeleteAsync<TUserDetail>(entity);
@@ -116,9 +100,5 @@ namespace Ticket.BusinessLogic.TicketService
                 throw;
             }
         }
-
-
-
-
     }
 }

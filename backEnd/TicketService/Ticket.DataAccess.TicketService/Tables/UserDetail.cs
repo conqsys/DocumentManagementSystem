@@ -35,9 +35,7 @@ namespace Ticket.DataAccess.TicketService
         public bool IsWildCard { get; set; }
 
         [Alias("is_allow_workflow")]
-        public bool IsAllowWorkFlow { get; set; }
-
-        
+        public bool IsAllowWorkFlow { get; set; }        
 
         [Alias("user_name")]
         public string UserName { get; set; }
@@ -95,7 +93,7 @@ namespace Ticket.DataAccess.TicketService
 
         [Alias("work_flow_admin")]
         public bool WorkFlowAdmin { get; set; }
-
+         
         [Alias("is_pdf_viewer")]
         public bool IsPdfViewer { get; set; }
 
@@ -106,9 +104,7 @@ namespace Ticket.DataAccess.TicketService
         public bool IsAllowPrint { get; set; }
 
         [Alias("is_allow_download")]
-        public bool IsAllowDownload { get; set; }
-
-        
+        public bool IsAllowDownload { get; set; }        
 
         [Alias("client_code")]
         public string ClientCode { get; set; }
@@ -130,5 +126,8 @@ namespace Ticket.DataAccess.TicketService
 
         [Alias("user_id")]
         public long UserId { get; set; }
+
+        [Ignore]
+        public IEnumerable<IUserQueue> Queues { get; set; }
     }
 }

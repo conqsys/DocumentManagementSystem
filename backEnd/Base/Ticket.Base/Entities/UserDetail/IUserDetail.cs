@@ -61,5 +61,8 @@ namespace Ticket.Base.Entities
         bool IsAllowWorkFlow { get; set; }
         long RouteUser { get; set; }
 
+        IEnumerable<IUserQueue> Queues { get; set; }
+
+                
     }
 }

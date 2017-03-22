@@ -38,6 +38,7 @@ namespace Ticket.BusinessLogic.Common
         }
         
         public IUser LoggedUser { get; private set; }
+        public IServiceProvider IServiceProvider { get; private set; }
 
         public BaseRepository(BaseValidationErrorCodes errorCodes, DatabaseContext dbContext, IUser loggedUser)
         {
@@ -73,7 +74,11 @@ namespace Ticket.BusinessLogic.Common
 
             return this.CurrentTransaction;
         }
-
+        
+        public TRepository GetDepRepository<TRepository>() where TRepository : class
+        {
+            return (TRepository)IServiceProvider.GetService(typeof(TRepository));
+        }
         public void CommitTransaction()
         {
             /* commit the above database changes if transaction initialized by this function*/

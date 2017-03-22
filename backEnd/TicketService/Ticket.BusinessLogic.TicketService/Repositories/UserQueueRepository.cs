@@ -28,32 +28,33 @@ namespace Ticket.BusinessLogic.TicketService
             : base(errorCodes, dbContext, loggedUser)
         {
         }
-
-
-        public async Task<IUserQueue> AddNew(IUserQueue entity)
+        public async Task<bool> AddNew(IEnumerable<IUserQueue> entities, long userId)
         {
-            TUserQueue tEntity = entity as TUserQueue;
-
-            var errors = await this.ValidateEntityToCheckExists(tEntity);
-            if (errors.Count() > 0)
-                await this.ThrowEntityException(errors);
-
-            try
+            foreach (IUserQueue entity in entities)
             {
-                this.StartTransaction();
-                var savedEntity = await base.AddNew(entity as TUserQueue);
-                this.CommitTransaction();
+                TUserQueue tEntity = entity as TUserQueue;
 
-                return savedEntity;
+                try
+                {
+                    entity.UserId = userId;
+                    this.StartTransaction();
+
+                    var savedEntity = await base.AddNew(entity as TUserQueue);
+                    this.CommitTransaction();
+
+
+                }
+
+                catch (PostgresException ex)
+                {
+                    throw new EntityUpdateException(ex);
+                }
+                catch
+                {
+                    throw;
+                }
             }
-            catch (PostgresException ex)
-            {
-                throw new EntityUpdateException(ex);
-            }
-            catch
-            {
-                throw;
-            }
+            return true;
         }
 
         public async Task<IUserQueue> Update(IUserQueue entity)
@@ -89,8 +90,6 @@ namespace Ticket.BusinessLogic.TicketService
         {
             try
             {
-               
-
                 this.StartTransaction();
                 var entity = await this.Connection.FirstOrDefaultAsync<TUserQueue>(i => i.Id == id);
                 await this.Connection.DeleteAsync<TUserQueue>(entity);
@@ -105,9 +104,5 @@ namespace Ticket.BusinessLogic.TicketService
                 throw;
             }
         }
-
-
-
-
     }
 }

@@ -13,7 +13,8 @@ export class UserInformationComponent implements OnInit {
   private usersList: UserInformationModel[] = [];
   private errorMsg: Message[] = [];
   private timeZones = [];
- selectedCity: string;
+  selectedCity: string;
+  confirmPassword: string;
 
   @Input() userDetail: UserInfoModel;
 
@@ -26,8 +27,4 @@ export class UserInformationComponent implements OnInit {
   public ngOnInit() {
 
   }
-
 }
-
-
-

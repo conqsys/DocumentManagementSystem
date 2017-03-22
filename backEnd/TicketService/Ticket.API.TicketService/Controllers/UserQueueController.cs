@@ -25,23 +25,23 @@ namespace Ticket.API.TicketService
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> SaveUserQueue([FromBody]UserQueue userQueue)
-        {
-            try
-            {
-                var savedImportFile = await this.Repository.AddNew(userQueue);
-                return Ok(savedImportFile);
-            }
-            catch (TicketException ex)
-            {
-                return StatusCode(400, ex.ValidationCodeResult);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, ex.Message);
-            }
-        }
+        //[HttpPost]
+        //public async Task<bool> SaveUserQueue([FromBody]List<UserQueue> userQueue)
+        //{
+        //    try
+        //    {
+        //        await this.Repository.AddNew(userQueue);
+        //        return true;
+        //    }
+        //    catch (TicketException ex)
+        //    {
+        //        return StatusCode(400, ex.ValidationCodeResult);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, ex.Message);
+        //    }
+        //}
 
         [HttpPut]
         public async Task<IActionResult> UpdateUserQueue([FromBody]UserQueue userQueue)

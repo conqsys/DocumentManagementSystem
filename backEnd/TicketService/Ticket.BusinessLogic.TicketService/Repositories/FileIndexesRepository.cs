@@ -21,10 +21,13 @@ namespace Ticket.BusinessLogic.TicketService
 {
     public class FileIndexesRepository<TFileIndexes> : ModuleBaseRepository<TFileIndexes>, IFileIndexesRepository
         where TFileIndexes : class, IFileIndexes, new()
+        
 
 
     {
-        public FileIndexesRepository(BaseValidationErrorCodes errorCodes, DatabaseContext dbContext, IUser loggedUser)
+        
+        public FileIndexesRepository(BaseValidationErrorCodes errorCodes, DatabaseContext dbContext, IUser loggedUser,
+            IUserQueueRepository _userQueueRepository)
             : base(errorCodes, dbContext, loggedUser)
         {
         }
@@ -42,6 +45,7 @@ namespace Ticket.BusinessLogic.TicketService
             {
                 this.StartTransaction();
                 var savedEntity = await base.AddNew(entity as TFileIndexes);
+              
                 this.CommitTransaction();
 
                 return savedEntity;
