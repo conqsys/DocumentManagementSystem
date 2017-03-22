@@ -23,10 +23,11 @@ namespace Ticket.BusinessLogic.TicketService
         
     {
         private IUserQueueRepository _userQueueRepository;
-        public UserDetailRepository(BaseValidationErrorCodes errorCodes, DatabaseContext dbContext, IUser loggedUser)
+        public UserDetailRepository(BaseValidationErrorCodes errorCodes, DatabaseContext dbContext, IUser loggedUser,
+            IUserQueueRepository userQueueRepository)
             : base(errorCodes, dbContext, loggedUser)
         {
-            UserQueue _userQueue = new UserQueue();
+            this._userQueueRepository = userQueueRepository;
         }
 
 
@@ -39,7 +40,8 @@ namespace Ticket.BusinessLogic.TicketService
                 this.StartTransaction();
                 var savedEntity = await base.AddNew(entity as TUserDetail);
                 var userid = savedEntity.UserId;
-             //    await _userQueue.AddNew(entity.Queues, userid);                
+                await this._userQueueRepository.AddNew(entity.Queues, userid);
+             
                 this.CommitTransaction();
                 return savedEntity;
             }
