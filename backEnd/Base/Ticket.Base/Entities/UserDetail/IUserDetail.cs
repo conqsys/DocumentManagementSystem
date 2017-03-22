@@ -63,6 +63,5 @@ namespace Ticket.Base.Entities
 
         IEnumerable<IUserQueue> Queues { get; set; }
 
-                
     }
 }

@@ -1,6 +1,6 @@
 export class UserInfoModel {
-    firstName: string = '';
-    lastName: string = '';
+    FirstName: string = '';
+    LastName: string = '';
     emailAddress: string = '';
     userName: string = '';
     password: string = '';

@@ -16,6 +16,7 @@ export class AdminUsersComponent implements OnInit {
 
     private userDetail: UserInfoModel;
     private user: any = {};
+    private selectedQueues: Array<any> = [];
     constructor(private http: Http,
         router: Router,
         private activatedRoute: ActivatedRoute,
@@ -34,6 +35,20 @@ export class AdminUsersComponent implements OnInit {
 
     }
     private saveUserDetail(): void {
-       console.log(this.userDetail);
+        let queue = this.userDetail.queues;
+        this.userDetail.queues = [];
+        queue.map(res => {
+            let selectedQueue = { id:0, queueId:1 , userId: this.userDetail.userId }
+            this.selectedQueues.push(selectedQueue);
+            // res.queueId=res.id;
+            // res.userId=this.userDetail.userId;
+        })
+        this.userDetail.queues = this.selectedQueues;
+        console.log(this.userDetail);
+        this.userService.saveUserDetail(this.userDetail).then(res => {
+
+            console.log(res);
+        })
+
     }
 }

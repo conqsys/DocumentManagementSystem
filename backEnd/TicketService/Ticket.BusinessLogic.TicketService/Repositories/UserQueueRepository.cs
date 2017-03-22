@@ -91,7 +91,7 @@ namespace Ticket.BusinessLogic.TicketService
             try
             {
                 this.StartTransaction();
-                var entity = await this.Connection.FirstOrDefaultAsync<TUserQueue>(i => i.Id == id);
+                var entity = await this.Connection.FirstOrDefaultAsync<TUserQueue>(i => i.UserId == id);
                 await this.Connection.DeleteAsync<TUserQueue>(entity);
                 this.CommitTransaction();
             }

@@ -19,9 +19,19 @@ export class UserService {
             .catch(this.handleError);
     };
 
+    public saveUserDetail(userDetail): Promise<any> {
+        return this.http.post(ApiUrl.baseUrl + 'userDetail/' , JSON.stringify(userDetail)).toPromise()
 
-    private handleError(error: any): Promise<any> {
-        // console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
-    }
+            .then(response =>
+                response.json())
+            .catch(this.handleError);
+    };
+
+
+
+
+    private handleError(error: any): Promise < any > {
+    // console.error('An error occurred', error);
+    return Promise.reject(error.message || error);
+}
 }

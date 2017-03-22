@@ -16,6 +16,7 @@ namespace Ticket.DataAccess.TicketService
     {
         public UserDetail()
         {
+            Queues = new List<UserQueue>();
         }
         [PrimaryKey]
         [AutoIncrement]
