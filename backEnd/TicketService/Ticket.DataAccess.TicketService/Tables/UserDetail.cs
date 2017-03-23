@@ -16,7 +16,7 @@ namespace Ticket.DataAccess.TicketService
     {
         public UserDetail()
         {
-            Queues = new List<UserQueue>();
+            SelectedQueues = new List<UserQueue>();
         }
         [PrimaryKey]
         [AutoIncrement]
@@ -129,6 +129,6 @@ namespace Ticket.DataAccess.TicketService
         public long UserId { get; set; }
 
         [Ignore]
-        public IEnumerable<IUserQueue> Queues { get; set; }
+        public IEnumerable<IUserQueue> SelectedQueues { get; set; }
     }
 }

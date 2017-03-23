@@ -13,6 +13,8 @@ namespace Ticket.Base.Entities
         long UserId { get; set; }
         long QueueId { get; set; }
 
+        long UserDetailId { get; set; }
+
 
     }
 }

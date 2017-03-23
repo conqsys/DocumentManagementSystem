@@ -101,7 +101,6 @@ namespace Ticket.BusinessLogic.TicketService
 
         public async Task<IWorkOrder> Update(IWorkOrder entity, long loggedUserId)
         {
-
             try
             {
                 TWorkOrder tEntity = entity as TWorkOrder;
@@ -183,7 +182,6 @@ namespace Ticket.BusinessLogic.TicketService
 			                        WHERE work_order.Assigned_user_id = " + loggedUserId + " AND work_order_clarification.clarification_verified = false " +
                                      "AND work_order_clarification.clarification_required = true " +
                                     "ORDER BY work_order_clarification.id  Desc LIMIT 1 )," +
-
                                     "wo_clarification AS ( " +
                                     " SELECT work_order.id woId,  work_order_clarification.clarification_required " +
                                     " from work_order_clarification " +

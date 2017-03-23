@@ -1,5 +1,4 @@
-﻿
-using Ticket.DataAccess.Common;
+﻿using Ticket.DataAccess.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,27 +20,23 @@ namespace Ticket.BusinessLogic.TicketService
 {
     public class UserQueueRepository<TUserQueue> : ModuleBaseRepository<TUserQueue>, IUserQueueRepository
         where TUserQueue : class, IUserQueue, new()
-
-
     {
         public UserQueueRepository(BaseValidationErrorCodes errorCodes, DatabaseContext dbContext, IUser loggedUser)
             : base(errorCodes, dbContext, loggedUser)
         {
         }
-        public async Task<bool> AddNew(IEnumerable<IUserQueue> entities, long userId)
+        public async Task<bool> AddNew(IEnumerable<IUserQueue> entities, long userId, long userDetailId)
         {
             foreach (IUserQueue entity in entities)
             {
                 TUserQueue tEntity = entity as TUserQueue;
-
                 try
                 {
                     entity.UserId = userId;
+                    entity.UserDetailId = userDetailId;
                     this.StartTransaction();
-
                     var savedEntity = await base.AddNew(entity as TUserQueue);
                     this.CommitTransaction();
-
 
                 }
 

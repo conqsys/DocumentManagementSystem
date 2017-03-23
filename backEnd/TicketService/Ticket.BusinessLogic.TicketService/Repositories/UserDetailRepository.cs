@@ -39,9 +39,9 @@ namespace Ticket.BusinessLogic.TicketService
             {                
                 this.StartTransaction();
                 var savedEntity = await base.AddNew(entity as TUserDetail);
-                var userid = savedEntity.UserId;
-                await this._userQueueRepository.AddNew(entity.Queues, userid);
-             
+                var userId = entity.UserId;
+                var userDetailId = savedEntity.Id;
+                await this._userQueueRepository.AddNew(entity.SelectedQueues, userId, userDetailId);             
                 this.CommitTransaction();
                 return savedEntity;
             }

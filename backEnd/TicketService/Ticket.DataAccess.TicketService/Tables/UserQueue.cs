@@ -27,5 +27,8 @@ namespace Ticket.DataAccess.TicketService
 
         [Alias("queue_id")]
         public long QueueId { get; set; }
+
+        [Alias("user_detail_id")]
+        public long UserDetailId { get; set; }
     }
 }

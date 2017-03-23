@@ -9,13 +9,10 @@ namespace Ticket.Base.Repositories
 {
     public interface IUserQueueRepository : IDepRepository
     {
-        //Task<IUserQueue> AddNew(IUserQueue entity);
-        //Task<IUserQueue> AddNew(IUserQueue entity);
-        Task<bool> AddNew(IEnumerable<IUserQueue> entity, long userId);
+        Task<bool> AddNew(IEnumerable<IUserQueue> entity, long userId, long userDetailId);
 
         Task<IUserQueue> Update(IUserQueue entity);
-
-        
+                
         Task Delete(long id);
     }
 }
